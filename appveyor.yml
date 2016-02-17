@@ -13,8 +13,7 @@ configuration: Release
 
 build:
   parallel: true
-
-verbosity: minimal
+  verbosity: minimal
 
 before_build:
 - nuget restore
