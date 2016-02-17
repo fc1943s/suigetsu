@@ -3,17 +3,17 @@ version: 1.1.{build}
 branches:
   only:
     - master
-	
+
 skip_tags: true
 
 cache:
   - packages -> **\packages.config
-  
+
 configuration: Release
 
 build:
   parallel: true
-  
+
 verbosity: minimal
 
 before_build:
