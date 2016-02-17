@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{633EB947-2857-44CC-A4A4-FC6DC1B3336D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{172445CA-9C86-4009-8983-F163A66AA1D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suigetsu.Core", "Core\Suigetsu.Core\Suigetsu.Core.csproj", "{7542E277-47FE-4C50-B969-BA917E55C022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suigetsu.Core.Tests", "Core\Tests\Suigetsu.Core.Tests\Suigetsu.Core.Tests.csproj", "{985B0355-2E2D-4A71-A836-66135E9F8DAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7542E277-47FE-4C50-B969-BA917E55C022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7542E277-47FE-4C50-B969-BA917E55C022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7542E277-47FE-4C50-B969-BA917E55C022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7542E277-47FE-4C50-B969-BA917E55C022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{985B0355-2E2D-4A71-A836-66135E9F8DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{985B0355-2E2D-4A71-A836-66135E9F8DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{985B0355-2E2D-4A71-A836-66135E9F8DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{985B0355-2E2D-4A71-A836-66135E9F8DAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{172445CA-9C86-4009-8983-F163A66AA1D3} = {633EB947-2857-44CC-A4A4-FC6DC1B3336D}
+		{7542E277-47FE-4C50-B969-BA917E55C022} = {633EB947-2857-44CC-A4A4-FC6DC1B3336D}
+		{985B0355-2E2D-4A71-A836-66135E9F8DAB} = {172445CA-9C86-4009-8983-F163A66AA1D3}
+	EndGlobalSection
+EndGlobal
