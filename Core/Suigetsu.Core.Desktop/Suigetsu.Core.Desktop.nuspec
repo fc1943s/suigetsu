@@ -1,13 +1,19 @@
-<?xml version="1.0"?>
-<package >
-  <metadata>
-    <id>Suigetsu.Core.Desktop</id>
-    <title>Suigetsu.Core.Desktop</title>
-	<version>1.0</version>
-	<description>Collection of .NET utility classes</description>
-    <authors>Stew</authors>
-    <owners>Stew</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <copyright>Copyright 2016</copyright>
-  </metadata>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Suigetsu.Core.Desktop</id>
+        <version>1.0</version>
+        <title>Suigetsu.Core.Desktop</title>
+        <authors>Stew</authors>
+        <owners>Stew</owners>
+        <licenseUrl>https://github.com/stewshka/Suigetsu/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/stewshka/Suigetsu</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Collection of .NET utility classes</description>
+        <copyright />
+        <tags>util desktop</tags>
+    </metadata>
+	<files>
+		<file src="bin\Release\Suigetsu.Core.Desktop.dll" target="lib\net46" />
+	</files>
 </package>
