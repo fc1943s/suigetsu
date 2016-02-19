@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Suigetsu.Core.Desktop</id>
+    <title>Suigetsu.Core.Desktop</title>
+	<version>1.0</version>
+	<description>Collection of .NET utility classes</description>
+    <authors>Stew</authors>
+    <owners>Stew</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright 2016</copyright>
+  </metadata>
+</package>
