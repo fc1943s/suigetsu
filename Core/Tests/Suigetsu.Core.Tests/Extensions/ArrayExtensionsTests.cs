@@ -6,16 +6,6 @@ namespace Suigetsu.Core.Tests.Extensions
     [TestFixture]
     public class ArrayExtensionsTests : AssertionHelper
     {
-        [SetUp]
-        public void Initialize()
-        {
-        }
-
-        [TearDown]
-        public void Cleanup()
-        {
-        }
-
         [Test]
         public void ConvertTest()
         {

@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 
 namespace Suigetsu.Core.Extensions
 {
+    /// <summary>
+    ///     Extensions for the <see cref="T:System.Array" /> class.
+    /// </summary>
     public static class ArrayExtensions
     {
         /// <summary>

@@ -6,14 +6,23 @@ using Suigetsu.Core.Extensions;
 
 namespace Suigetsu.Core.Common
 {
+    /// <summary>
+    ///     Methods related to unit testing. Currently supports only NUnit.
+    /// </summary>
     public static class Testing
     {
+        /// <summary>
+        ///     Tests if the current execution was started by any supported unit test library.
+        /// </summary>
         public static bool IsTestRunning()
         {
             return AppDomain.CurrentDomain.GetAssemblies()
                             .Any(assembly => assembly.FullName.ToLowerInvariant().StartsWith("nunit.framework"));
         }
 
+        /// <summary>
+        ///     Tries to find the assembly of the test method being currently executed.
+        /// </summary>
         public static Assembly GetTestAssembly()
         {
             var framesToSkip = 1;
@@ -25,23 +34,22 @@ namespace Suigetsu.Core.Common
 
                 framesToSkip++;
 
-                var method = frame.GetMethod();
+                var currentDeclaringType = frame.GetMethod().DeclaringType;
 
-                if(method.DeclaringType == null)
+                if(currentDeclaringType != null)
                 {
-                    continue;
-                }
+                    var moduleName = currentDeclaringType.Module.Name.ToLower();
 
-                var moduleName = method.DeclaringType.Module.Name.ToLower();
+                    if(moduleName.In("nunit.core.dll", "nunit.framework.dll", "system.web.dll", "system.web.mvc.dll"))
+                    {
+                        break;
+                    }
 
-                if(moduleName.In("nunit.core.dll", "system.web.dll", "system.web.mvc.dll"))
-                {
-                    break;
-                }
-
-                if(moduleName != "mscorlib.dll" && method.DeclaringType.FullName != "ASP.global_asax")
-                {
-                    declaringType = method.DeclaringType;
+                    // Web Applications are tricky
+                    if(moduleName != "mscorlib.dll" && currentDeclaringType.FullName != "ASP.global_asax")
+                    {
+                        declaringType = currentDeclaringType;
+                    }
                 }
             }
 

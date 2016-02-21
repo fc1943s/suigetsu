@@ -38,8 +38,16 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\TestingTests.cs" />
     <Compile Include="Extensions\ArrayExtensionsTests.cs" />
+    <Compile Include="Extensions\ByteExtensionsTests.cs" />
+    <Compile Include="Extensions\ComparableExtensionsTests.cs" />
+    <Compile Include="Extensions\GenericEnumExtensionsTests.cs" />
+    <Compile Include="Extensions\StringExtensionsTests.cs" />
+    <Compile Include="Extensions\TypeExtensionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\EnumUtilsTests.cs" />
+    <Compile Include="Util\TypeUtilsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
