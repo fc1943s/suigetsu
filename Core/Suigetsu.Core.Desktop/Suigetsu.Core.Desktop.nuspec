@@ -6,9 +6,10 @@
         <title>Suigetsu.Core.Desktop</title>
         <authors>Stew</authors>
         <owners>Stew</owners>
-        <licenseUrl>https://github.com/stewshka/Suigetsu/blob/master/LICENSE</licenseUrl>
+        <licenseUrl>https://raw.githubusercontent.com/stewshka/Suigetsu/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/stewshka/Suigetsu</projectUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <iconUrl>https://raw.githubusercontent.com/stewshka/Suigetsu/icon_64_64.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Collection of .NET utility classes</description>
         <copyright />
         <tags>util desktop</tags>
