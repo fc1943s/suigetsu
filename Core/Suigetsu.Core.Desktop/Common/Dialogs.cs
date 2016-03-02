@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
-
-//using NLog;
+using NLog;
+using Suigetsu.Core.Logging;
 
 namespace Suigetsu.Core.Desktop.Common
 {
@@ -13,15 +13,14 @@ namespace Suigetsu.Core.Desktop.Common
     {
         //TODO: When not informed, the dialog titles must be translated to the system language.
 
-        //TODO: missing code
-        //private static readonly Logger Logger = Logging.Logger.GetCurrentClassLogger();
+        private static readonly Logger Logger = LoggingManager.GetCurrentClassLogger();
 
         /// <summary>
         ///     Shows an information dialog.
         /// </summary>
         public static void Info(string text, string title = "Information")
         {
-            // Logger.Info("Information dialog: '{0}'", text);
+            Logger.Info("Information dialog: '{0}'", text);
             MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -30,7 +29,7 @@ namespace Suigetsu.Core.Desktop.Common
         /// </summary>
         public static void Error(string text, string title = "Error")
         {
-            //   Logger.Info("Error dialog: '{0}'", text);
+            Logger.Info("Error dialog: '{0}'", text);
             MessageBox.Show(text, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

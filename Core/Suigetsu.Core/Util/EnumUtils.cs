@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Suigetsu.Core.Extensions;
 
 namespace Suigetsu.Core.Util
@@ -10,7 +9,7 @@ namespace Suigetsu.Core.Util
     public static class EnumUtils
     {
         /// <summary>
-        ///     Dummy enum for validation and testing purposes.
+        ///     Dummy <see langword="enum" /> for validation and testing purposes.
         /// </summary>
         public enum DummyEnum
         {
@@ -21,14 +20,15 @@ namespace Suigetsu.Core.Util
         }
 
         /// <summary>
-        ///     Empty enum for validation and testing purposes.
+        ///     Empty <see langword="enum" /> for validation and testing purposes.
         /// </summary>
         public enum EmptyEnum
         {
         }
 
         /// <summary>
-        ///     Value that internally determines that an enum instance is empty/invalid, since enum items defaultly
+        ///     Value that internally determines that an <see langword="enum" /> instance is empty/invalid, since enum items
+        ///     defaultly
         ///     starts with zero.
         /// </summary>
         private const int InvalidEnumItem = 60000;
@@ -40,8 +40,8 @@ namespace Suigetsu.Core.Util
         //}
 
         /// <summary>
-        ///     Returns an instance of the provided enum type, with the stored value of
-        ///     <see cref="F:Suigetsu.Core.Util.EnumUtils.InvalidEnumItem" />.
+        ///     Returns an instance of the provided <see langword="enum" /> type, with the stored value of
+        ///     <see cref="InvalidEnumItem" /> .
         /// </summary>
         public static Enum GetEmpty(Type type)
         {
@@ -51,7 +51,8 @@ namespace Suigetsu.Core.Util
         }
 
         /// <summary>
-        ///     Tests if the given enum item is valid, throwing otherwise.
+        ///     Tests if the given <see langword="enum" /> <paramref name="item" />
+        ///     is valid, throwing otherwise.
         /// </summary>
         public static void Validate(Enum item)
         {

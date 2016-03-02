@@ -11,7 +11,7 @@ namespace Suigetsu.Core.Extensions
     public static class TypeExtensions
     {
         /// <summary>
-        ///     Tests if the given object is equal any parameter.
+        ///     Tests if the given <see langword="object" /> is equal any parameter.
         /// </summary>
         public static bool In<T>(this T item, params T[] items)
         {
@@ -19,19 +19,19 @@ namespace Suigetsu.Core.Extensions
         }
 
         /// <summary>
-        ///     Tests if the given type is an enum, throwing otherwise.
+        ///     Tests if the given <paramref name="type" /> is an <see langword="enum" />, throwing otherwise.
         /// </summary>
         /// <exception cref="InvalidEnumArgumentException">The provided type is not an enum type.</exception>
         public static void ValidateEnumType(this Type type)
         {
             if(type == null || !type.IsEnum)
             {
-                throw new InvalidEnumArgumentException("The type '{0}' is not an enum type.".FormatWith(type?.Name));
+                throw new InvalidEnumArgumentException($"The type '{type?.Name}' is not an enum type.");
             }
         }
 
         /// <summary>
-        ///     Tries to instantiate the given value/primitive type.
+        ///     Tries to instantiate the given value/primitive <paramref name="type" />.
         /// </summary>
         public static object Default(this Type type)
         {
