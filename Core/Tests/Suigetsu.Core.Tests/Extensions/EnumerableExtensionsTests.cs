@@ -19,5 +19,11 @@ namespace Suigetsu.Core.Tests.Extensions
 
             Expect(list.Split(new int[] { }), EquivalentTo(new[] { new[] { 1, 2, 3, 4, 5 } }));
         }
+
+        [Test]
+        public void WrapTest()
+        {
+            Expect(new[] { 1, 2 }.Wrap("'"), EquivalentTo(new[] { "'1'", "'2'" }));
+        }
     }
 }
