@@ -87,9 +87,6 @@ namespace Suigetsu.Core.Extensions
         private static string ToUtf8(this string text, Encoding fromEncoding)
             => Encoding.UTF8.GetString(fromEncoding.GetBytes(text));
 
-        public static string FixNewLine(this string text)
-        {
-            return Regex.Replace("", @"(\r\n?|\n)", Environment.NewLine);
-        }
+        public static string FixNewLine(this string text) => Regex.Replace(text, @"(\r\n?|\n)", Environment.NewLine);
     }
 }
