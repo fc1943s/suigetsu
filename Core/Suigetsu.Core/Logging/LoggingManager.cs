@@ -18,7 +18,15 @@ namespace Suigetsu.Core.Logging
         private static readonly string LogLayout = (Testing.IsTestRunning() ? "[Test] " : string.Empty) +
                                                    @"[${date}] [${level}] [${logger}] ${message}";
 
+        private static readonly Logger Logger = GetCurrentClassLogger();
+
         private static bool _configured;
+
+        /// <summary>
+        ///     Provides a global logging instance for quick testing purpuses. Use the
+        ///     <see cref="GetCurrentClassLogger" /> for production code.
+        /// </summary>
+        public static Logger GetGlobalLogger() => Logger;
 
         /// <summary>
         ///     Configures windows event logging (Error level).

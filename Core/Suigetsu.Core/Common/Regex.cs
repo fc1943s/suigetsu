@@ -17,6 +17,8 @@ namespace Suigetsu.Core.Common
         public static IList<IList<string>> MatchAll(string text, string pattern, Func<string, string> replace,
                                                     out string replacedText)
         {
+            //TODO: return nested enumerable. (test with a big text)
+
             var res = new List<IList<string>>();
             var reg = new System.Text.RegularExpressions.Regex
                 (pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
@@ -85,32 +87,23 @@ namespace Suigetsu.Core.Common
         ///     <paramref name="replace" /> parameter.
         /// </summary>
         public static string Replace(string text, string pattern, string replace)
-        {
-            return Replace(text, pattern, x => replace);
-        }
+            => Replace(text, pattern, x => replace);
 
         /// <summary>
         ///     Gets all the captures from the first group of the matched <paramref name="text" />.
         /// </summary>
         public static IList<string> Match(string text, string pattern)
-        {
-            return MatchAll(text, pattern).FirstOrDefault(() => new List<string>());
-        }
+            => MatchAll(text, pattern).FirstOrDefault(() => new List<string>());
 
         /// <summary>
         ///     Gets the first capture from the first group of the matched <paramref name="text" />.
         /// </summary>
         public static string MatchFirst(string text, string pattern)
-        {
-            return Match(text, pattern).FirstOrDefault(() => string.Empty);
-        }
+            => Match(text, pattern).FirstOrDefault(() => string.Empty);
 
         /// <summary>
         ///     Tests if the given <paramref name="text" /> contains any capture.
         /// </summary>
-        public static bool HasMatch(string text, string pattern)
-        {
-            return !Match(text, pattern).IsEmpty();
-        }
+        public static bool HasMatch(string text, string pattern) => !Match(text, pattern).IsEmpty();
     }
 }

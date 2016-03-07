@@ -19,12 +19,8 @@ namespace Suigetsu.Core.Extensions
         }
 
         /// <summary>
-        ///     Tests if the list is empty.
+        ///     Tests if the <paramref name="list" /> is empty.
         /// </summary>
-        public static bool IsEmpty<T>(this IList<T> list)
-        {
-            return list.Count <= 0;
-        }
+        public static bool IsEmpty<T>(this IList<T> list) => list.Count <= 0;
     }
 }
- 

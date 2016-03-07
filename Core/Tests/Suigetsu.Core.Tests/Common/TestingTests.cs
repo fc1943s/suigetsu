@@ -7,15 +7,9 @@ namespace Suigetsu.Core.Tests.Common
     public class TestingTests : AssertionHelper
     {
         [Test]
-        public void GetTestAssemblyTest()
-        {
-            Expect(Testing.GetTestAssembly(), EqualTo(GetType().Assembly));
-        }
+        public void GetTestAssemblyTest() => Expect(Testing.GetTestAssembly(), EqualTo(GetType().Assembly));
 
         [Test]
-        public void IsTestRunningTest()
-        {
-            Expect(Testing.IsTestRunning());
-        }
+        public void IsTestRunningTest() => Expect(Testing.IsTestRunning());
     }
 }

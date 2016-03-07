@@ -54,9 +54,6 @@ namespace Suigetsu.Core.Util
         ///     Tests if the given <see langword="enum" /> <paramref name="item" />
         ///     is valid, throwing otherwise.
         /// </summary>
-        public static void Validate(Enum item)
-        {
-            (item?.GetType()).ValidateEnumType();
-        }
+        public static void Validate(Enum item) => (item?.GetType()).ValidateEnumType();
     }
 }

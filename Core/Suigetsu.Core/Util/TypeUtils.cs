@@ -11,9 +11,6 @@ namespace Suigetsu.Core.Util
         ///     <para>Tries to instantiate the given value/primitive type.</para>
         ///     Shortcut for: <seealso cref="M:Suigetsu.Core.Extensions.TypeExtensions.Default(System.Type)" />
         /// </summary>
-        public static T Default<T>()
-        {
-            return (T)typeof(T).Default();
-        }
+        public static T Default<T>() => (T)typeof(T).Default();
     }
 }

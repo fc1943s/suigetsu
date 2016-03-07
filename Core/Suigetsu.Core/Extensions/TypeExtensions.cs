@@ -13,10 +13,7 @@ namespace Suigetsu.Core.Extensions
         /// <summary>
         ///     Tests if the given <see langword="object" /> is equal any parameter.
         /// </summary>
-        public static bool In<T>(this T item, params T[] items)
-        {
-            return items != null && items.Contains(item);
-        }
+        public static bool In<T>(this T item, params T[] items) => items != null && items.Contains(item);
 
         /// <summary>
         ///     Tests if the given <paramref name="type" /> is an <see langword="enum" />, throwing otherwise.

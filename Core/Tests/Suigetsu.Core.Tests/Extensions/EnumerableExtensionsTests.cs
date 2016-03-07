@@ -24,6 +24,7 @@ namespace Suigetsu.Core.Tests.Extensions
         public void WrapTest()
         {
             Expect(new[] { 1, 2 }.Wrap("'"), EquivalentTo(new[] { "'1'", "'2'" }));
+            Expect(new[] { 'a' }.Wrap("<", ">"), EquivalentTo(new[] { "<a>" }));
         }
     }
 }

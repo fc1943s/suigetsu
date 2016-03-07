@@ -28,17 +28,20 @@ namespace Suigetsu.Core.Extensions
         ///     found.
         /// </summary>
         public static T FirstOrDefault<T>(this IEnumerable<T> list, Func<T> defaultValue)
-        {
-            return FirstOrDefault(list, null, defaultValue);
-        }
+            => FirstOrDefault(list, null, defaultValue);
 
         /// <summary>
-        ///     Wraps each item with the given <paramref name="text"/>, converting them into a string.
+        ///     Wraps each item with the given <paramref name="text" />, converting them into a string.
         /// </summary>
         public static IEnumerable<string> Wrap<T>(this IEnumerable<T> list, string text)
-        {
-            return list.Select(v => text + v.ToString() + text);
-        }
+            => list.Select(x => x.ToString().Wrap(text));
+
+        /// <summary>
+        ///     Wraps each item with the given <paramref name="before" /> and
+        ///     <paramref name="after" /> parameters, converting them into a string.
+        /// </summary>
+        public static IEnumerable<string> Wrap<T>(this IEnumerable<T> list, string before, string after)
+            => list.Select(x => x.ToString().Wrap(before, after));
 
         /// <summary>
         ///     Sequence splitter that supports more than one value as delimiter.
@@ -66,16 +69,17 @@ namespace Suigetsu.Core.Extensions
             {
                 var iClosure = i;
 
-                var delimiterFound = !delimitersArray.Where
-                                 ((x, j) => !seqArray[iClosure + j].Equals(x) // Different item
-                                            || (iClosure + j) >= seqArray.Length // Out of the seq boundaries
-                                 ).Any();
+                var delimiterFound =
+                    !delimitersArray.Where
+                         ((x, j) => !seqArray[iClosure + j].Equals(x) // Different item
+                                    || (iClosure + j) >= seqArray.Length // Out of the seq boundaries
+                         ).Any();
 
                 if(delimiterFound)
                 {
                     onSplitDelimiterFound?.Invoke(i);
                 }
-                else if(i != seqArray.Length - 1) 
+                else if(i != seqArray.Length - 1)
                 {
                     continue; // Loops until we find a delimiter
                 }

@@ -15,10 +15,9 @@ namespace Suigetsu.Core.Common
         ///     Tests if the current execution was started by any supported unit test library.
         /// </summary>
         public static bool IsTestRunning()
-        {
-            return AppDomain.CurrentDomain.GetAssemblies()
-                            .Any(assembly => assembly.FullName.ToLowerInvariant().StartsWith("nunit.framework"));
-        }
+            =>
+                AppDomain.CurrentDomain.GetAssemblies()
+                         .Any(assembly => assembly.FullName.ToLowerInvariant().StartsWith("nunit.framework"));
 
         /// <summary>
         ///     Tries to find the assembly of the test method being currently executed.

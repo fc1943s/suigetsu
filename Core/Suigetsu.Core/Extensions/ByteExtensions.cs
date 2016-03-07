@@ -8,12 +8,8 @@ namespace Suigetsu.Core.Extensions
     public static class ByteExtensions
     {
         /// <summary>
-        ///     Converts an array of byte into a concatenated lowercase hexadecimal string.
+        ///     Converts an array of <see langword="byte" /> into a concatenated lowercase hexadecimal string.
         /// </summary>
-        /// <returns></returns>
-        public static string ByteArrayToString(this byte[] data)
-        {
-            return new SoapHexBinary(data).ToString().ToLower();
-        }
+        public static string ByteArrayToString(this byte[] data) => new SoapHexBinary(data).ToString().ToLower();
     }
 }
