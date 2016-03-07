@@ -62,6 +62,7 @@
     <Compile Include="Serialization\JsonSerializerSettingsWrapper.cs" />
     <Compile Include="Serialization\JsonContractResolverWrapper.cs" />
     <Compile Include="Serialization\JsonEnumConverter.cs" />
+    <Compile Include="Serialization\JsonSerializerSettingsWrapperParameters.cs" />
     <Compile Include="Util\AssemblyUtils.cs" />
     <Compile Include="Util\EnumUtils.cs" />
     <Compile Include="Util\StringUtils.cs" />

@@ -26,14 +26,14 @@ namespace Suigetsu.Core.Tests.Extensions
                     { "Test1", true },
                     { "Test2", false }
                 }.ToJson
-                     (new JsonSerializerSettingsWrapper.JsonSerializerSettingsWrapperParameters
+                     (new JsonSerializerSettingsWrapperParameters
                      {
                          Indented = true
-                     }),
+                     }).FixNewLine(),
                  EqualTo(@"{
   ""Test1"": true,
   ""Test2"": false
-}"));
+}".FixNewLine()));
 
             Expect
                 (GenericEnumExtensionsTests.TestEnum.TestEnumItem.ToJson(),
@@ -41,7 +41,7 @@ namespace Suigetsu.Core.Tests.Extensions
 
             Expect
                 (GenericEnumExtensionsTests.TestEnum.TestEnumItem.ToJson
-                     (new JsonSerializerSettingsWrapper.JsonSerializerSettingsWrapperParameters
+                     (new JsonSerializerSettingsWrapperParameters
                      {
                          RegisterCustomContracts = false
                      }),

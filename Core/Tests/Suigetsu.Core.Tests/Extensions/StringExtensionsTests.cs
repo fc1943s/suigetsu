@@ -16,7 +16,7 @@ namespace Suigetsu.Core.Tests.Extensions
 
             Expect
                 (@"{WrongJsonPropertyTest: 1}".FromJson<ObjectExtensionsTests.JsonClassTest>
-                     (new JsonSerializerSettingsWrapper.JsonSerializerSettingsWrapperParameters
+                     (new JsonSerializerSettingsWrapperParameters
                      {
                          OnCreateProperty = property =>
                          {
@@ -36,7 +36,7 @@ namespace Suigetsu.Core.Tests.Extensions
             Expect
                 (((int)GenericEnumExtensionsTests.TestEnum.TestEnumItem).ToString()
                                                                         .FromJson<GenericEnumExtensionsTests.TestEnum>
-                     (new JsonSerializerSettingsWrapper.JsonSerializerSettingsWrapperParameters
+                     (new JsonSerializerSettingsWrapperParameters
                      {
                          RegisterCustomContracts = false
                      }),

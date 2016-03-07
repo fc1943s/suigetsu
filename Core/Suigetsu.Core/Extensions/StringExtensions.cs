@@ -16,17 +16,15 @@ namespace Suigetsu.Core.Extensions
     public static class StringExtensions
     {
         private static object FromJson(this string str, Type type,
-                                       JsonSerializerSettingsWrapper.JsonSerializerSettingsWrapperParameters settings =
-                                           null)
+                                       JsonSerializerSettingsWrapperParameters settings = null)
             => JsonConvert.DeserializeObject(str, type, new JsonSerializerSettingsWrapper(settings));
 
         /// <summary>
         ///     Deserializes the given json string into a <see langword="object" /> of the given
         ///     <typeparamref name="T" /> type.
         /// </summary>
-        public static T FromJson<T>(this string str,
-                                    JsonSerializerSettingsWrapper.JsonSerializerSettingsWrapperParameters settings =
-                                        null) => (T)str.FromJson(typeof(T), settings);
+        public static T FromJson<T>(this string str, JsonSerializerSettingsWrapperParameters settings = null)
+            => (T)str.FromJson(typeof(T), settings);
 
         /// <summary>
         ///     Tests if the <paramref name="str" /> is empty.
@@ -88,5 +86,10 @@ namespace Suigetsu.Core.Extensions
 
         private static string ToUtf8(this string text, Encoding fromEncoding)
             => Encoding.UTF8.GetString(fromEncoding.GetBytes(text));
+
+        public static string FixNewLine(this string text)
+        {
+            return Regex.Replace("", @"(\r\n?|\n)", Environment.NewLine);
+        }
     }
 }
