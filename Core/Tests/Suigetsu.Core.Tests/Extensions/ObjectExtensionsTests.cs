@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Newtonsoft.Json.Converters;
 using NUnit.Framework;
 using Suigetsu.Core.Extensions;
 using Suigetsu.Core.Serialization;
@@ -29,7 +31,7 @@ namespace Suigetsu.Core.Tests.Extensions
                      (new JsonSerializerSettingsWrapperParameters
                      {
                          Indented = true
-                     }).FixNewLine(),
+                     }),
                  EqualTo(@"{
   ""Test1"": true,
   ""Test2"": false
@@ -46,6 +48,20 @@ namespace Suigetsu.Core.Tests.Extensions
                          RegisterCustomContracts = false
                      }),
                  EqualTo(((int)GenericEnumExtensionsTests.TestEnum.TestEnumItem).ToString()));
+
+            Expect
+                (new DateTime(2000, 1, 1).ToJson
+                     (new JsonSerializerSettingsWrapperParameters
+                     {
+                         OnCreateContract = contract =>
+                         {
+                             if(contract.UnderlyingType == typeof(DateTime))
+                             {
+                                 contract.Converter = new JavaScriptDateTimeConverter();
+                             }
+                         }
+                     }),
+                 EqualTo("new Date(946692000000)"));
         }
     }
 }

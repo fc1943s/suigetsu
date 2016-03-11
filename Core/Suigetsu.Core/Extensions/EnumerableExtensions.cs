@@ -52,6 +52,7 @@ namespace Suigetsu.Core.Extensions
         public static IList<T[]> Split<T>(this IEnumerable<T> seq, IEnumerable<T> delimiters,
                                           Action<int> onSplitDelimiterFound = null)
         {
+            //TODO: try to change the result type into an enumerable
             var result = new List<T[]>();
 
             var start = 0;

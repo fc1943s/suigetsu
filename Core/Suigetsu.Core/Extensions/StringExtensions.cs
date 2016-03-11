@@ -42,33 +42,42 @@ namespace Suigetsu.Core.Extensions
         /// </summary>
         public static string Wrap(this string str, string before, string after) => before + str + after;
 
+        /// <summary>
+        ///     Converts the <paramref name="text" /> to its int equivalent.
+        /// </summary>
         public static int ToInt(this string text, NumberStyles style = NumberStyles.Integer) => int.Parse(text, style);
 
+        /// <summary>
+        ///     Converts the <paramref name="text" /> to its Int64 equivalent.
+        /// </summary>
         public static long ToLong(this string text) => long.Parse(text);
 
-        public static IList<int> HexToDigits(this string hex, int digitLength = StringUtils.DefaultHexDigitLength)
+        /// <summary>
+        ///     Breaks the given <paramref name="hex" /> string into digits.
+        /// </summary>
+        public static IEnumerable<int> HexToDigits(this string hex, int digitLength = StringUtils.DefaultHexDigitLength)
         {
-            var bytes = new List<int>();
-
             for(var i = 0; i < hex.Length; i += digitLength)
             {
                 if((hex.Length - i) >= digitLength)
                 {
-                    bytes.Add(hex.Substring(i, digitLength).Trim().ToInt(NumberStyles.HexNumber));
+                    yield return hex.Substring(i, digitLength).Trim().ToInt(NumberStyles.HexNumber);
                 }
             }
-
-            return bytes;
         }
 
-        public static string HexToString(this string hex, int digitLength)
+        /// <summary>
+        ///     Breaks the given <paramref name="hex" /> string into chars and join them into a new string.
+        /// </summary>
+        public static string HexToString(this string hex, int digitLength = StringUtils.DefaultHexDigitLength)
             => new string(hex.HexToDigits(digitLength).ToArray().Convert<char>());
 
-        public static string HexToString(this string hex) => hex.HexToString(StringUtils.DefaultHexDigitLength);
-
+        /// <summary>
+        ///     Breaks the given <paramref name="hex" /> string into bytes.
+        /// </summary>
         public static IEnumerable<byte> HexToBytes(this string hex) => hex.HexToDigits(2).ToArray().Convert<byte>();
 
-        private static IEnumerable<string> GraphemeClusters(this string str)
+        private static IEnumerable<string> GetGraphemeClusters(this string str)
         {
             var enumerator = StringInfo.GetTextElementEnumerator(str);
             while(enumerator.MoveNext())
@@ -77,16 +86,28 @@ namespace Suigetsu.Core.Extensions
             }
         }
 
+        /// <summary>
+        ///     Reverses a text respecting unicode characters.
+        /// </summary>
         public static string Reverse(this string str)
-            => string.Join(string.Empty, str.GraphemeClusters().Reverse().ToArray());
+            => string.Join(string.Empty, str.GetGraphemeClusters().Reverse().ToArray());
 
+        /// <summary>
+        ///     Extracts the digits from the <paramref name="text" />.
+        /// </summary>
         public static string GetNumbers(this string text) => Regex.Replace(text, @"(\D)", string.Empty);
 
+        /// <summary>
+        ///     Converts the <paramref name="text" /> to the UTF-8 encoding.
+        /// </summary>
         public static string ToUtf8(this string text) => text.ToUtf8(Encoding.GetEncoding(1252));
 
         private static string ToUtf8(this string text, Encoding fromEncoding)
             => Encoding.UTF8.GetString(fromEncoding.GetBytes(text));
 
+        /// <summary>
+        ///     Normalizes the text's line breaks between different environments.
+        /// </summary>
         public static string FixNewLine(this string text) => Regex.Replace(text, @"(\r\n?|\n)", Environment.NewLine);
     }
 }

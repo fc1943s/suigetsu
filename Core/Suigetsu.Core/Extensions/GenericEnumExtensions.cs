@@ -28,14 +28,32 @@ namespace Suigetsu.Core.Extensions
         public static bool IsEmptyEnum<T>(this T item) where T : struct, IComparable, IFormattable, IConvertible
             => Equals(item, EnumUtils.GetEmpty(typeof(T)));
 
+        /// <summary>
+        ///     Searches an <see cref="EnumRepo" /> using the given <paramref name="id" />.
+        /// </summary>
         public static EnumRepo GetRepoById<T>(this T item, string id)
             where T : struct, IComparable, IFormattable, IConvertible => ById(item, id).GetRepo();
 
+        /// <summary>
+        ///     Retrieves the <see cref="EnumRepo" /> from the given <see langword="enum" /> <paramref name="item" />.
+        /// </summary>
         public static EnumRepo GetRepo<T>(this T item) where T : struct, IComparable, IFormattable, IConvertible
             => EnumRepo.Get(item);
 
+        /// <summary>
+        ///     Searches an <see langword="enum" /> <paramref name="item" /> of the current type using
+        ///     the given <paramref name="id" />.
+        /// </summary>
         [SuppressMessage("ReSharper", "UnusedParameter.Global")]
         public static T ById<T>(this T item, string id) where T : struct, IComparable, IFormattable, IConvertible
             => EnumRepo.EnumById<T>(id);
+
+        /// <summary>
+        ///     Searches the first <see langword="enum" /> <paramref name="item" /> of the current type using
+        ///     the given <paramref name="desc" />.
+        /// </summary>
+        [SuppressMessage("ReSharper", "UnusedParameter.Global")]
+        public static T ByDesc<T>(this T item, string desc) where T : struct, IComparable, IFormattable, IConvertible
+            => EnumRepo.EnumByDesc<T>(desc);
     }
 }

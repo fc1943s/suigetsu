@@ -11,7 +11,10 @@ namespace Suigetsu.Core.Tests.Extensions
         public enum TestEnum
         {
             [EnumRepo("TestEnumItemId", "TestEnumItemDesc", 1, 2.0f, '3', TestEnum2.TestEnumItem2)]
-            TestEnumItem
+            TestEnumItem,
+
+            [EnumRepo("TestEnumItem2Id")]
+            TestEnumItem2
         }
 
         private enum TestEnum2
@@ -24,17 +27,20 @@ namespace Suigetsu.Core.Tests.Extensions
         public void EnumRepoTest()
         {
             Expect(TestEnum.TestEnumItem.GetRepo().Desc, EqualTo("TestEnumItemDesc"));
+            Expect(TestEnum.TestEnumItem2.GetRepo().Desc, Empty);
             Expect(EnumUtils.DummyEnum.DummyEnumItem.GetRepo().Desc, Empty);
             Expect(default(TestEnum).GetEmpty().GetRepo().Desc, Empty);
 
             Expect(default(TestEnum).ById(string.Empty).IsEmptyEnum());
             Expect(default(TestEnum).GetEmpty().IsEmptyEnum());
-            Expect(TestEnum.TestEnumItem.IsEmptyEnum(), False); 
+            Expect(TestEnum.TestEnumItem2.IsEmptyEnum(), False);
 
             Expect(EnumRepo.EnumById<TestEnum>("TestEnumItemId"), EqualTo(TestEnum.TestEnumItem));
+            Expect(EnumRepo.EnumByDesc<TestEnum>(string.Empty), EqualTo(TestEnum.TestEnumItem2));
             Expect(default(TestEnum).ById("TestEnumItemId"), EqualTo(TestEnum.TestEnumItem));
             Expect(EnumRepo.EnumById<TestEnum>(string.Empty), EqualTo(default(TestEnum).GetEmpty()));
             Expect(default(TestEnum).ById(string.Empty), EqualTo(default(TestEnum).GetEmpty()));
+            Expect(default(TestEnum).ByDesc(string.Empty), EqualTo(TestEnum.TestEnumItem2));
             Expect(default(TestEnum).GetRepoById("TestEnumItemId").Desc, EqualTo("TestEnumItemDesc"));
 
             Expect(TestEnum.TestEnumItem.GetRepo()[-1], Null);
