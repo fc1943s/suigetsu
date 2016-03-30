@@ -23,8 +23,7 @@ namespace Suigetsu.Core.Util
         ///     Empty <see langword="enum" /> for validation and testing purposes.
         /// </summary>
         public enum EmptyEnum
-        {
-        }
+        {}
 
         /// <summary>
         ///     Value that internally determines that an <see langword="enum" /> instance is empty/invalid, since enum items

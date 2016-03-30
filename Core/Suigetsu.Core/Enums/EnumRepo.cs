@@ -25,16 +25,12 @@ namespace Suigetsu.Core.Enums
         /// <summary>
         ///     Creates a <paramref name="data" /> repository for the current <see langword="enum" /> item.
         /// </summary>
-        public EnumRepo(string id, params object[] data) : this(id, string.Empty, data)
-        {
-        }
+        public EnumRepo(string id, params object[] data) : this(id, string.Empty, data) {}
 
         /// <summary>
         ///     Creates a data repository for the current <see langword="enum" /> item.
         /// </summary>
-        public EnumRepo() : this(string.Empty)
-        {
-        }
+        public EnumRepo() : this(string.Empty) {}
 
         /// <summary>
         ///     Id representation of the <see langword="enum" /> item. Can be used for database storage.
@@ -56,6 +52,7 @@ namespace Suigetsu.Core.Enums
             {
                 return TypeUtils.Default<T>();
             }
+
             return (T)Data[index];
         }
 

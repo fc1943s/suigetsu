@@ -8,15 +8,15 @@ namespace Suigetsu.Core.Tests.Util
     public class AssemblyUtilsTests : AssertionHelper
     {
         [Test]
-        public void GetCallingTypeTest()
-        {
-            Expect(AssemblyUtils.GetCallingType(), EqualTo(GetType()));
-        }
-
-        [Test]
         public void GetCallingTypeNameTest()
         {
             Expect(AssemblyUtils.GetCallingTypeName(), EqualTo(GetType().FullName));
+        }
+
+        [Test]
+        public void GetCallingTypeTest()
+        {
+            Expect(AssemblyUtils.GetCallingType(), EqualTo(GetType()));
         }
 
         [Test]

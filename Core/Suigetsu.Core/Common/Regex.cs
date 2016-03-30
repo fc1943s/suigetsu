@@ -14,8 +14,8 @@ namespace Suigetsu.Core.Common
         ///     Gets all the captures from all groups of the matched <paramref name="text" />, optionally replacing
         ///     them with the result of the given lambda.
         /// </summary>
-        public static IList<IList<string>> MatchAll(string text, string pattern, Func<string, string> replace,
-                                                    out string replacedText)
+        public static IList<IList<string>> MatchAll
+            (string text, string pattern, Func<string, string> replace, out string replacedText)
         {
             //TODO: return nested enumerable. (test with a big text)
 
@@ -49,6 +49,7 @@ namespace Suigetsu.Core.Common
 
                 match = match.NextMatch();
             }
+
             replacedText += text.Substring(replaceOffset);
 
             return res;
@@ -64,8 +65,8 @@ namespace Suigetsu.Core.Common
             return MatchAll(text, pattern, replace, out replacedText);
         }
 
-        private static string Replace(string text, string pattern, Func<string, string> replace,
-                                      out IList<IList<string>> captureList)
+        private static string Replace
+            (string text, string pattern, Func<string, string> replace, out IList<IList<string>> captureList)
         {
             string replacedText;
             captureList = MatchAll(text, pattern, replace, out replacedText);

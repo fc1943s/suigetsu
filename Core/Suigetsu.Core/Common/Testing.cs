@@ -17,7 +17,7 @@ namespace Suigetsu.Core.Common
         public static bool IsTestRunning()
             =>
                 AppDomain.CurrentDomain.GetAssemblies()
-                         .Any(assembly => assembly.FullName.ToLowerInvariant().StartsWith("nunit.framework"));
+                    .Any(assembly => assembly.FullName.ToLowerInvariant().StartsWith("nunit.framework"));
 
         /// <summary>
         ///     Tries to find the assembly of the test method being currently executed.

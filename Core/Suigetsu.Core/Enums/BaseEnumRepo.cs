@@ -41,6 +41,7 @@ namespace Suigetsu.Core.Enums
                 {
                     return null;
                 }
+
                 return Data[index];
             }
         }

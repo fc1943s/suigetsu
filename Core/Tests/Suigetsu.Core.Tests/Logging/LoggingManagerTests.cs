@@ -1,6 +1,4 @@
-﻿
-
-using NLog;
+﻿using NLog;
 using NUnit.Framework;
 using Suigetsu.Core.Logging;
 

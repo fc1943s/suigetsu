@@ -20,7 +20,7 @@ namespace Suigetsu.Core.Tests.Extensions
         [Test]
         public void ToJsonTest()
         {
-            Expect(new[] { 1, 2, 3 }.ToJson(), EqualTo(@"[1,2,3]"));
+            Expect(new[] { 1, 2, 3 }.ToJson(), EqualTo("[1,2,3]"));
 
             Expect
                 (new Dictionary<string, bool>

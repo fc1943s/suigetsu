@@ -49,8 +49,8 @@ namespace Suigetsu.Core.Extensions
         /// <param name="seq">Seq to be split.</param>
         /// <param name="delimiters">Items that will be used as delimiter to split the sequence.</param>
         /// <param name="onSplitDelimiterFound">Invoked with the index of the first delimiter for each item found.</param>
-        public static IList<T[]> Split<T>(this IEnumerable<T> seq, IEnumerable<T> delimiters,
-                                          Action<int> onSplitDelimiterFound = null)
+        public static IList<T[]> Split<T>
+            (this IEnumerable<T> seq, IEnumerable<T> delimiters, Action<int> onSplitDelimiterFound = null)
         {
             //TODO: try to change the result type into an enumerable
             var result = new List<T[]>();
@@ -108,6 +108,7 @@ namespace Suigetsu.Core.Extensions
 
                 start = i + 1;
             }
+
             return result;
         }
     }

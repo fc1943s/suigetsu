@@ -15,8 +15,8 @@ namespace Suigetsu.Core.Extensions
     /// </summary>
     public static class StringExtensions
     {
-        private static object FromJson(this string str, Type type,
-                                       JsonSerializerSettingsWrapperParameters settings = null)
+        private static object FromJson
+            (this string str, Type type, JsonSerializerSettingsWrapperParameters settings = null)
             => JsonConvert.DeserializeObject(str, type, new JsonSerializerSettingsWrapper(settings));
 
         /// <summary>

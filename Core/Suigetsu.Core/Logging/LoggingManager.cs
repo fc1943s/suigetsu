@@ -15,8 +15,8 @@ namespace Suigetsu.Core.Logging
     /// </summary>
     public static class LoggingManager
     {
-        private static readonly string LogLayout = (Testing.IsTestRunning() ? "[Test] " : string.Empty) +
-                                                   @"[${date}] [${level}] [${logger}] ${message}";
+        private static readonly string LogLayout = (Testing.IsTestRunning() ? "[Test] " : string.Empty)
+                                                   + "[${date}] [${level}] [${logger}] ${message}";
 
         private static readonly Logger Logger = GetCurrentClassLogger();
 
@@ -77,6 +77,7 @@ namespace Suigetsu.Core.Logging
             {
                 return;
             }
+
             var assembly = AssemblyUtils.GetEntryAssembly();
 
             var fileTarget = new FileTarget

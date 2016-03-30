@@ -15,7 +15,7 @@ namespace Suigetsu.Core.Tests.Extensions
             Expect("[1,2,3]".FromJson<int[]>(), EquivalentTo(new[] { 1, 2, 3 }));
 
             Expect
-                (@"{WrongJsonPropertyTest: 1}".FromJson<ObjectExtensionsTests.JsonClassTest>
+                ("{WrongJsonPropertyTest: 1}".FromJson<ObjectExtensionsTests.JsonClassTest>
                      (new JsonSerializerSettingsWrapperParameters
                      {
                          OnCreateProperty = property =>
@@ -29,13 +29,13 @@ namespace Suigetsu.Core.Tests.Extensions
 
             Expect
                 (GenericEnumExtensionsTests.TestEnum.TestEnumItem.GetRepo()
-                                           .Id.Wrap("\"")
-                                           .FromJson<GenericEnumExtensionsTests.TestEnum>(),
+                     .Id.Wrap("\"")
+                     .FromJson<GenericEnumExtensionsTests.TestEnum>(),
                  EqualTo(GenericEnumExtensionsTests.TestEnum.TestEnumItem));
 
             Expect
                 (((int)GenericEnumExtensionsTests.TestEnum.TestEnumItem).ToString()
-                                                                        .FromJson<GenericEnumExtensionsTests.TestEnum>
+                     .FromJson<GenericEnumExtensionsTests.TestEnum>
                      (new JsonSerializerSettingsWrapperParameters
                      {
                          RegisterCustomContracts = false
@@ -78,10 +78,10 @@ namespace Suigetsu.Core.Tests.Extensions
         public void ReverseTest() => Expect("1bA".Reverse(), EqualTo("Ab1"));
 
         [Test]
-        public void ToLongTest() => Expect("1234".ToLong().ToString(), EqualTo("1234"));
+        public void ToIntTest() => Expect("1234".ToInt().ToString(), EqualTo("1234"));
 
         [Test]
-        public void ToIntTest() => Expect("1234".ToInt().ToString(), EqualTo("1234"));
+        public void ToLongTest() => Expect("1234".ToLong().ToString(), EqualTo("1234"));
 
         [Test]
         public void ToUtf8Test()
