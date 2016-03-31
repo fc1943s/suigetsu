@@ -70,11 +70,10 @@ namespace Suigetsu.Core.Extensions
             {
                 var iClosure = i;
 
-                var delimiterFound =
-                    !delimitersArray.Where
-                         ((x, j) => !seqArray[iClosure + j].Equals(x) // Different item
-                                    || (iClosure + j) >= seqArray.Length // Out of the seq boundaries
-                         ).Any();
+                var delimiterFound = !delimitersArray.Where
+                                          ((x, j) => !seqArray[iClosure + j].Equals(x) // Different item
+                                                     || (iClosure + j) >= seqArray.Length // Out of the seq boundaries
+                                          ).Any();
 
                 if(delimiterFound)
                 {

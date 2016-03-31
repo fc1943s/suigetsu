@@ -15,8 +15,7 @@ namespace Suigetsu.Core.Extensions
     /// </summary>
     public static class StringExtensions
     {
-        private static object FromJson
-            (this string str, Type type, JsonSerializerSettingsWrapperParameters settings = null)
+        private static object FromJson(this string str, Type type, JsonSerializerSettingsWrapperParameters settings = null)
             => JsonConvert.DeserializeObject(str, type, new JsonSerializerSettingsWrapper(settings));
 
         /// <summary>
@@ -89,8 +88,7 @@ namespace Suigetsu.Core.Extensions
         /// <summary>
         ///     Reverses a text respecting unicode characters.
         /// </summary>
-        public static string Reverse(this string str)
-            => string.Join(string.Empty, str.GetGraphemeClusters().Reverse().ToArray());
+        public static string Reverse(this string str) => string.Join(string.Empty, str.GetGraphemeClusters().Reverse().ToArray());
 
         /// <summary>
         ///     Extracts the digits from the <paramref name="text" />.

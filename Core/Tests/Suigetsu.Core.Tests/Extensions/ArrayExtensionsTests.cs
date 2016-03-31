@@ -21,9 +21,7 @@ namespace Suigetsu.Core.Tests.Extensions
 
             Expect(new[] { 'A' }.Convert<byte>(), EquivalentTo(new[] { 65 }));
 
-            Expect
-                (new[] { 300, 400 }.Convert<byte>(),
-                 EquivalentTo(new[] { 300 - byte.MaxValue - 1, 400 - byte.MaxValue - 1 }));
+            Expect(new[] { 300, 400 }.Convert<byte>(), EquivalentTo(new[] { 300 - byte.MaxValue - 1, 400 - byte.MaxValue - 1 }));
         }
     }
 }

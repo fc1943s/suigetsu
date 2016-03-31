@@ -69,14 +69,13 @@ namespace Suigetsu.Core.Enums
             EnumItem = EnumUtils.GetEmpty(type)
         };
 
-        private static TRepo GetEmptyRepo<TEnum, TRepo>() where TRepo : BaseEnumRepo, new()
-            where TEnum : struct, IFormattable => GetEmptyRepo<TRepo>(typeof(TEnum));
+        private static TRepo GetEmptyRepo<TEnum, TRepo>() where TRepo : BaseEnumRepo, new() where TEnum : struct, IFormattable
+            => GetEmptyRepo<TRepo>(typeof(TEnum));
 
         /// <summary>
         ///     Searches for an <see cref="EnumRepo" /> using the given <see langword="enum" /> type.
         /// </summary>
-        protected static TRepo FindEnum<TRepo>(Type type, Func<TRepo, bool> validation)
-            where TRepo : BaseEnumRepo, new()
+        protected static TRepo FindEnum<TRepo>(Type type, Func<TRepo, bool> validation) where TRepo : BaseEnumRepo, new()
             => GetAttributes<TRepo>(type).FirstOrDefault(validation, () => GetEmptyRepo<TRepo>(type));
 
         private static TRepo FindEnum<TEnum, TRepo>(Func<TRepo, bool> validation) where TRepo : BaseEnumRepo, new()

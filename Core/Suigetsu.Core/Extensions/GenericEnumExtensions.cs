@@ -31,8 +31,8 @@ namespace Suigetsu.Core.Extensions
         /// <summary>
         ///     Searches an <see cref="EnumRepo" /> using the given <paramref name="id" />.
         /// </summary>
-        public static EnumRepo GetRepoById<T>(this T item, string id)
-            where T : struct, IComparable, IFormattable, IConvertible => ById(item, id).GetRepo();
+        public static EnumRepo GetRepoById<T>(this T item, string id) where T : struct, IComparable, IFormattable, IConvertible
+            => ById(item, id).GetRepo();
 
         /// <summary>
         ///     Retrieves the <see cref="EnumRepo" /> from the given <see langword="enum" /> <paramref name="item" />.

@@ -22,8 +22,7 @@ namespace Suigetsu.Core.Tests.Extensions
         [Test]
         public void ValidateEnumTypeTest()
         {
-            Expect
-                (() => typeof(TypeExtensionsTests).ValidateEnumType(), Throws.InstanceOf<InvalidEnumArgumentException>());
+            Expect(() => typeof(TypeExtensionsTests).ValidateEnumType(), Throws.InstanceOf<InvalidEnumArgumentException>());
             Expect(() => typeof(EnumUtils.EmptyEnum).ValidateEnumType(), Throws.Nothing);
         }
     }

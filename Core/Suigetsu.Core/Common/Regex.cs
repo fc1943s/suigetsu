@@ -20,8 +20,7 @@ namespace Suigetsu.Core.Common
             //TODO: return nested enumerable. (test with a big text)
 
             var res = new List<IList<string>>();
-            var reg = new System.Text.RegularExpressions.Regex
-                (pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+            var reg = new System.Text.RegularExpressions.Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Multiline);
             replacedText = string.Empty;
             var replaceOffset = 0;
 
@@ -87,8 +86,7 @@ namespace Suigetsu.Core.Common
         ///     Replaces all the captures from every group of the matched <paramref name="text" /> with the
         ///     <paramref name="replace" /> parameter.
         /// </summary>
-        public static string Replace(string text, string pattern, string replace)
-            => Replace(text, pattern, x => replace);
+        public static string Replace(string text, string pattern, string replace) => Replace(text, pattern, x => replace);
 
         /// <summary>
         ///     Gets all the captures from the first group of the matched <paramref name="text" />.
@@ -99,8 +97,7 @@ namespace Suigetsu.Core.Common
         /// <summary>
         ///     Gets the first capture from the first group of the matched <paramref name="text" />.
         /// </summary>
-        public static string MatchFirst(string text, string pattern)
-            => Match(text, pattern).FirstOrDefault(() => string.Empty);
+        public static string MatchFirst(string text, string pattern) => Match(text, pattern).FirstOrDefault(() => string.Empty);
 
         /// <summary>
         ///     Tests if the given <paramref name="text" /> contains any capture.

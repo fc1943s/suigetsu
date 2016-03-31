@@ -15,8 +15,7 @@ namespace Suigetsu.Core.Tests.Common
 
             string replacedText;
             Expect
-                (Regex.MatchAll
-                     ("One car red car blue car q", @"(\w+)\s+(car)", x => x == "car" ? "x" : x, out replacedText),
+                (Regex.MatchAll("One car red car blue car q", @"(\w+)\s+(car)", x => x == "car" ? "x" : x, out replacedText),
                  EquivalentTo(new[] { new[] { "One", "x" }, new[] { "red", "x" }, new[] { "blue", "x" } }));
             Expect(replacedText, EqualTo("One x red x blue x q"));
 

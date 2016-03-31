@@ -16,8 +16,7 @@ namespace Suigetsu.Core.Serialization
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
             => writer.WriteValue(EnumRepo.Get((Enum)value).Id);
 
-        public override object ReadJson
-            (JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
             => EnumRepo.EnumById(objectType, (string)reader.Value);
 
         [ExcludeFromCodeCoverage]
