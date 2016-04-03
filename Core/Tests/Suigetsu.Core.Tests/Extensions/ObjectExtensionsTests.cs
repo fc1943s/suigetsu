@@ -50,7 +50,7 @@ namespace Suigetsu.Core.Tests.Extensions
                  EqualTo(((int)GenericEnumExtensionsTests.TestEnum.TestEnumItem).ToString()));
 
             Expect
-                (new DateTime(2000, 1, 1).ToJson
+                (946692000000.ToDateTime().ToJson
                      (new JsonSerializerSettingsWrapperParameters
                      {
                          OnCreateContract = contract =>

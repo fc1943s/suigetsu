@@ -19,7 +19,7 @@ namespace Suigetsu.Core.Tests.Extensions
         {
             var timestamp = DateTime.Now.GetTimestamp();
 
-            Expect(timestamp, EqualTo(timestamp.GetDateTime().GetTimestamp()));
+            Expect(timestamp, EqualTo(timestamp.ToDateTime().GetTimestamp()));
             Expect(timestamp, GreaterThan(1410441386000));
         }
     }

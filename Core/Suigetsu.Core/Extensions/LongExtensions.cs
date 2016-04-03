@@ -5,10 +5,10 @@ namespace Suigetsu.Core.Extensions
 {
     public static class LongExtensions
     {
-        public static DateTime GetDateTime(this long timestamp)
+        public static DateTime ToDateTime(this long timestamp)
         {
             return TimeZoneInfo.ConvertTimeFromUtc
-                (DateTimeUtils.GetEpochTime().AddMilliseconds(timestamp > 1000000000000 ? timestamp : timestamp * 1000),
+                (DateTimeUtils.GetEpochTime().AddMilliseconds(timestamp > 100000000000 ? timestamp : timestamp * 1000),
                  TimeZoneInfo.Local);
         }
     }
