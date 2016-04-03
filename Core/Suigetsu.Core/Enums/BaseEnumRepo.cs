@@ -15,7 +15,7 @@ namespace Suigetsu.Core.Enums
         /// <summary>
         ///     The <see langword="enum" /> item that contains this current attribute's instance.
         /// </summary>
-        protected Enum EnumItem;
+        public Enum EnumItem;
 
         /// <summary>
         ///     Creates a <paramref name="data" /> repository for the current <see langword="enum" /> item.
@@ -46,7 +46,7 @@ namespace Suigetsu.Core.Enums
             }
         }
 
-        private static IEnumerable<TRepo> GetAttributes<TRepo>(Type type) where TRepo : BaseEnumRepo
+        public static IEnumerable<TRepo> GetAttributes<TRepo>(Type type) where TRepo : BaseEnumRepo
         {
             foreach(var v in Enum.GetValues(type))
             {

@@ -103,7 +103,6 @@ namespace Suigetsu.Core.Logging
         /// </summary>
         public static Logger GetCurrentClassLogger()
         {
-            var logConfigured = false;
             if(!_configured || Testing.IsTestRunning())
             {
                 _configured = true;
@@ -115,17 +114,10 @@ namespace Suigetsu.Core.Logging
                 ConfigureFileTarget(config);
 
                 LogManager.Configuration = config;
-
-                logConfigured = true;
             }
 
             var callingClass = AssemblyUtils.GetCallingTypeName(2);
-            var logger = LogManager.GetLogger(callingClass);
-            if(logConfigured)
-            {
-                logger.Trace("Log configured. First class: {0}", callingClass);
-            }
-            return logger;
+            return LogManager.GetLogger(callingClass);
         }
     }
 }

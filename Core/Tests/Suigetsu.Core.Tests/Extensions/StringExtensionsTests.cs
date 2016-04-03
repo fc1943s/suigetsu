@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Suigetsu.Core.Extensions;
@@ -76,6 +77,10 @@ namespace Suigetsu.Core.Tests.Extensions
 
         [Test]
         public void ReverseTest() => Expect("1bA".Reverse(), EqualTo("Ab1"));
+
+        [Test]
+        public void ToDateTimeTest()
+            => Expect("01/02/2000 00:30:00".ToDateTime(), EqualTo(new DateTime(2000, 02, 01, 00, 30, 00)));
 
         [Test]
         public void ToIntTest() => Expect("1234".ToInt().ToString(), EqualTo("1234"));

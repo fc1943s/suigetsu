@@ -41,29 +41,42 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ArgSegments.cs" />
     <Compile Include="Common\Regex.cs" />
     <Compile Include="Common\Testing.cs" />
+    <Compile Include="Configuration\Settings.cs" />
+    <Compile Include="Cryptography\DesEcb.cs" />
+    <Compile Include="Cryptography\Md5.cs" />
+    <Compile Include="Cryptography\ReversibleCipher.cs" />
     <Compile Include="Enums\BaseEnumRepo.cs" />
     <Compile Include="Enums\EnumRepo.cs" />
     <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Extensions\ByteExtensions.cs" />
     <Compile Include="Extensions\ComparableExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\GenericEnumExtensions.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\LongExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="IO\TempFile.cs" />
     <Compile Include="Logging\LoggingManager.cs" />
+    <Compile Include="Net\WebUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\JsonSerializerSettingsWrapper.cs" />
     <Compile Include="Serialization\JsonContractResolverWrapper.cs" />
     <Compile Include="Serialization\JsonEnumConverter.cs" />
     <Compile Include="Serialization\JsonSerializerSettingsWrapperParameters.cs" />
     <Compile Include="Util\AssemblyUtils.cs" />
+    <Compile Include="Util\DateTimeUtils.cs" />
+    <Compile Include="Util\DictionaryUtils.cs" />
     <Compile Include="Util\EnumUtils.cs" />
     <Compile Include="Util\StringUtils.cs" />
     <Compile Include="Util\TypeUtils.cs" />

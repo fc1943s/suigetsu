@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{985B0355-2E2D-4A71-A836-66135E9F8DAB}</ProjectGuid>
+    <ProjectGuid>{46E7715E-6328-4F5B-986D-50A190DE1681}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Suigetsu.Core.Tests</RootNamespace>
-    <AssemblyName>Suigetsu.Core.Tests</AssemblyName>
+    <RootNamespace>Suigetsu.Core.Desktop.Tests</RootNamespace>
+    <AssemblyName>Suigetsu.Core.Desktop.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
@@ -44,38 +40,26 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\ArgSegmentsTests.cs" />
-    <Compile Include="Common\RegexTests.cs" />
-    <Compile Include="Common\TestingTests.cs" />
-    <Compile Include="Configuration\SettingsTests.cs" />
-    <Compile Include="Cryptography\DesEcbTests.cs" />
-    <Compile Include="Cryptography\Md5Tests.cs" />
-    <Compile Include="Cryptography\ReversibleCipherTests.cs" />
-    <Compile Include="Extensions\ArrayExtensionsTests.cs" />
-    <Compile Include="Extensions\ByteExtensionsTests.cs" />
-    <Compile Include="Extensions\ComparableExtensionsTests.cs" />
-    <Compile Include="Extensions\DateTimeExtensionsTests.cs" />
-    <Compile Include="Extensions\DictionaryExtensionsTests.cs" />
-    <Compile Include="Extensions\EnumerableExtensionsTests.cs" />
-    <Compile Include="Extensions\GenericEnumExtensionsTests.cs" />
-    <Compile Include="Extensions\ListExtensionsTests.cs" />
-    <Compile Include="Extensions\ObjectExtensionsTests.cs" />
-    <Compile Include="Extensions\StringExtensionsTests.cs" />
-    <Compile Include="Extensions\TypeExtensionsTests.cs" />
-    <Compile Include="IO\TempFileTests.cs" />
-    <Compile Include="Logging\LoggingManagerTests.cs" />
+    <Compile Include="Net\BaseSocketTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\AssemblyUtilsTests.cs" />
-    <Compile Include="Util\DateTimeUtilsTests.cs" />
-    <Compile Include="Util\EnumUtilsTests.cs" />
-    <Compile Include="Util\TypeUtilsTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Suigetsu.Core.Desktop\Suigetsu.Core.Desktop.csproj">
+      <Project>{F1B27378-A85C-48C3-A482-FAF42048CF31}</Project>
+      <Name>Suigetsu.Core.Desktop</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Suigetsu.Core\Suigetsu.Core.csproj">
       <Project>{7542E277-47FE-4C50-B969-BA917E55C022}</Project>
       <Name>Suigetsu.Core</Name>

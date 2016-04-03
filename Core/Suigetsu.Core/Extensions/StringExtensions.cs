@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using Suigetsu.Core.Common;
+using Suigetsu.Core.Configuration;
+using Suigetsu.Core.Cryptography;
 using Suigetsu.Core.Serialization;
 using Suigetsu.Core.Util;
 
@@ -84,6 +86,11 @@ namespace Suigetsu.Core.Extensions
                 yield return (string)enumerator.Current;
             }
         }
+
+        public static DateTime ToDateTime(this string text)
+            => DateTime.ParseExact(text, Settings.Get<Settings>().DefaultDateFormat, null);
+
+        public static string GetMd5(this string text, int repeatCount = 1) => Md5.FromString(text, repeatCount);
 
         /// <summary>
         ///     Reverses a text respecting unicode characters.
