@@ -16,48 +16,48 @@ namespace Suigetsu.Core.Configuration
 
         public static T Get<T>() where T : Settings, new()
         {
-            lock (InstanceList)
+            lock(InstanceList)
             {
-                if (!InstanceList.ContainsKey(typeof(T)))
+                if(!InstanceList.ContainsKey(typeof(T)))
                 {
                     Settings obj = new T();
 
-                    foreach (var v in typeof(T).GetProperties())
+                    foreach(var v in typeof(T).GetProperties())
                     {
                         var strValue = ConfigurationManager.AppSettings[v.Name];
 
-                        if (strValue == null)
+                        if(strValue == null)
                         {
-                            foreach (var v2 in
+                            foreach(var v2 in
                                 v.GetCustomAttributes(true).Where(v2 => v2.GetType() == typeof(DefaultValueAttribute)))
                             {
                                 strValue = ((DefaultValueAttribute)v2).Value.ToString();
                             }
                         }
 
-                        if (strValue == null)
+                        if(strValue == null)
                         {
                             throw new Exception($"Unable to find value of parameter {v.Name}.");
                         }
 
-                        if (!v.GetGetMethod(true).IsPublic)
+                        if(!v.GetGetMethod(true).IsPublic)
                         {
                             throw new Exception
                                 ($"The get method must be public. Parameter: {v.Name}. Class: {obj.GetType().FullName}");
                         }
 
-                        if (!v.GetSetMethod(true).IsFamily)
+                        if(!v.GetSetMethod(true).IsFamily)
                         {
                             throw new Exception
                                 ($"The set method must be protected. Parameter: {v.Name}. Class: {obj.GetType().FullName}");
                         }
 
-                        v.SetValue
-                            (obj, Convert.ChangeType(strValue, v.PropertyType, CultureInfo.InvariantCulture), null);
+                        v.SetValue(obj, Convert.ChangeType(strValue, v.PropertyType, CultureInfo.InvariantCulture), null);
                     }
 
                     InstanceList.Add(typeof(T), obj);
                 }
+
                 return (T)InstanceList[typeof(T)];
             }
         }

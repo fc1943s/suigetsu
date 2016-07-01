@@ -42,10 +42,10 @@ namespace Suigetsu.Core.Desktop.Services
                         Action =
                             () =>
                             Dialogs.Info
-                                (String.Format
-                                     ((string)"Service '{0}' status: {1}. Installed: {2}.",
-                                      (object)Name,
-                                      (object)Services.GetServiceStatus(Name),
+                                (string.Format
+                                     ("Service '{0}' status: {1}. Installed: {2}.",
+                                      Name,
+                                      Services.GetServiceStatus(Name),
                                       Services.ServiceIsInstalled(Name)))
                     }
                 },

@@ -39,7 +39,7 @@ namespace Suigetsu.Core.Desktop.Tests.Net
                         {
                             Port = port,
                             DataSizeHeader = v,
-                            OnReceiveData = (data, sendBack) => sendBack(data) 
+                            OnReceiveData = (data, sendBack) => sendBack(data)
                         });
 
                     clientSocket.Connect("localhost", port);
