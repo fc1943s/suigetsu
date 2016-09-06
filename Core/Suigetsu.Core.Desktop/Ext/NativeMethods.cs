@@ -125,9 +125,9 @@ namespace Suigetsu.Core.Desktop.Ext
 
         [DllImport("advapi32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         internal static extern IntPtr CreateServiceW
-            (IntPtr hScManager, string lpServiceName, string lpDisplayName, ServiceAccessRights dwDesiredAccess,
-             int dwServiceType, ServiceBootFlag dwStartType, ServiceError dwErrorControl, string lpBinaryPathName,
-             string lpLoadOrderGroup, IntPtr lpdwTagId, string lpDependencies, string lp, string lpPassword);
+        (IntPtr hScManager, string lpServiceName, string lpDisplayName, ServiceAccessRights dwDesiredAccess,
+         int dwServiceType, ServiceBootFlag dwStartType, ServiceError dwErrorControl, string lpBinaryPathName,
+         string lpLoadOrderGroup, IntPtr lpdwTagId, string lpDependencies, string lp, string lpPassword);
 
         [DllImport("advapi32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]

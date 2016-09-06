@@ -26,31 +26,31 @@ namespace Suigetsu.Core.Desktop.Net
 
             _server.Listen
                 (new SocketListenerParameters
-                {
-                    Port = _port,
-                    DataSizeHeader = false,
-                    OnReceiveData = (data, sendBack) =>
-                    {
-                        var dataText = Encoding.UTF8.GetString(data);
-                        if(dataText == RemoteInvokeCmd)
-                        {
-                            Logger.Trace("Remote Invoke received.");
-                            try
-                            {
-                                new Thread(() => _action()).Start();
-                            }
-                            catch(Exception e)
-                            {
-                                Logger.Error(e);
-                            }
-                            Logger.Trace("End remote invoke.");
-                        }
-                        else
-                        {
-                            Logger.Trace("Invalid Remote Invoke command received: {0}.", dataText);
-                        }
-                    }
-                });
+                 {
+                     Port = _port,
+                     DataSizeHeader = false,
+                     OnReceiveData = (data, sendBack) =>
+                     {
+                         var dataText = Encoding.UTF8.GetString(data);
+                         if(dataText == RemoteInvokeCmd)
+                         {
+                             Logger.Trace("Remote Invoke received.");
+                             try
+                             {
+                                 new Thread(() => _action()).Start();
+                             }
+                             catch(Exception e)
+                             {
+                                 Logger.Error(e);
+                             }
+                             Logger.Trace("End remote invoke.");
+                         }
+                         else
+                         {
+                             Logger.Trace("Invalid Remote Invoke command received: {0}.", dataText);
+                         }
+                     }
+                 });
         }
 
         public void Stop()

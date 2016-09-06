@@ -198,16 +198,16 @@ namespace Suigetsu.Core.Desktop.Net
 
                 var sent =
                     await
-                    Task.Factory.FromAsync
-                        (_socket.BeginSend
-                             (data,
-                              total,
-                              /*dataLeft > DefaultBufferSize ? DefaultBufferSize :*/
-                              dataLeft,
-                              SocketFlags.None,
-                              null,
-                              null),
-                         _socket.EndSend);
+                        Task.Factory.FromAsync
+                            (_socket.BeginSend
+                                 (data,
+                                  total,
+                                  /*dataLeft > DefaultBufferSize ? DefaultBufferSize :*/
+                                  dataLeft,
+                                  SocketFlags.None,
+                                  null,
+                                  null),
+                             _socket.EndSend);
 
                 //var sent = _socket.Send(data, total, /*dataLeft > 1024 ? 1024 : dataLeft*/dataLeft, SocketFlags.None);
 
@@ -220,11 +220,11 @@ namespace Suigetsu.Core.Desktop.Net
             if(expectResponse)
             {
                 return await AsyncReceive
-                                 (_socket as Socket,
-                                  new SocketListenerParameters
-                                  {
-                                      DataSizeHeader = dataSizeHeader
-                                  });
+                           (_socket as Socket,
+                            new SocketListenerParameters
+                            {
+                                DataSizeHeader = dataSizeHeader
+                            });
             }
 
             return new byte[0];
@@ -500,7 +500,8 @@ namespace Suigetsu.Core.Desktop.Net
 
                         var bytesSent =
                             await
-                            Task.Factory.FromAsync(socket.BeginSend(sendData, 0, sendData.Length, 0, null, null), socket.EndSend);
+                                Task.Factory.FromAsync
+                                    (socket.BeginSend(sendData, 0, sendData.Length, 0, null, null), socket.EndSend);
 
                         Logger.Trace("({0}:{1}) Sent {2} bytes.", socket.GetHashCode(), _socketType, bytesSent);
 
@@ -547,37 +548,37 @@ namespace Suigetsu.Core.Desktop.Net
 
             new Thread
                 (() =>
+                 {
+                     Logger.Trace("Listening on port {0}.", socketListenerParameters.Port);
+
+                     Action accept = null;
+                     accept = async () =>
+                     {
+                         try
+                         {
+                             var clientSocket = await Task.Factory.FromAsync(_socket.BeginAccept, _socket.EndAccept, true);
+
+                             accept();
+                             Logger.Trace
+                                 ("({0}:{1}) Server accepted connection of {2}. Target: {3}",
+                                  _socket.GetHashCode(),
+                                  _socketType,
+                                  clientSocket.RemoteEndPoint,
+                                  clientSocket.GetHashCode());
+
+                             await AsyncReceive(clientSocket, socketListenerParameters, true);
+                             Logger.Trace("After AsyncReceive.");
+                         }
+                         catch(ObjectDisposedException)
+                         {
+                             Logger.Error("({0}:{1}) Socket disposed while listening.", _socket.GetHashCode(), _socketType);
+                         }
+                     };
+                     accept();
+                 })
                 {
-                    Logger.Trace("Listening on port {0}.", socketListenerParameters.Port);
-
-                    Action accept = null;
-                    accept = async () =>
-                    {
-                        try
-                        {
-                            var clientSocket = await Task.Factory.FromAsync(_socket.BeginAccept, _socket.EndAccept, true);
-
-                            accept();
-                            Logger.Trace
-                                ("({0}:{1}) Server accepted connection of {2}. Target: {3}",
-                                 _socket.GetHashCode(),
-                                 _socketType,
-                                 clientSocket.RemoteEndPoint,
-                                 clientSocket.GetHashCode());
-
-                            await AsyncReceive(clientSocket, socketListenerParameters, true);
-                            Logger.Trace("After AsyncReceive.");
-                        }
-                        catch(ObjectDisposedException)
-                        {
-                            Logger.Error("({0}:{1}) Socket disposed while listening.", _socket.GetHashCode(), _socketType);
-                        }
-                    };
-                    accept();
-                })
-            {
-                IsBackground = true
-            }.Start();
+                    IsBackground = true
+                }.Start();
         }
 
         private void CloseSocket()

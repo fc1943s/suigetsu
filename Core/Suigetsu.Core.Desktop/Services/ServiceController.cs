@@ -41,12 +41,12 @@ namespace Suigetsu.Core.Desktop.Services
                         Visible = true,
                         Action =
                             () =>
-                            Dialogs.Info
-                                (string.Format
-                                     ("Service '{0}' status: {1}. Installed: {2}.",
-                                      Name,
-                                      Services.GetServiceStatus(Name),
-                                      Services.ServiceIsInstalled(Name)))
+                                Dialogs.Info
+                                    (string.Format
+                                         ("Service '{0}' status: {1}. Installed: {2}.",
+                                          Name,
+                                          Services.GetServiceStatus(Name),
+                                          Services.ServiceIsInstalled(Name)))
                     }
                 },
                 {

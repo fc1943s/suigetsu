@@ -39,53 +39,53 @@ namespace Suigetsu.Core.Desktop.Services
 
                 var errorHandlingAction = new Action
                     (() =>
-                    {
-                        try
-                        {
-                            if(parameters.Validate != null && !parameters.Validate(DateTime.Now))
-                            {
-                                return;
-                            }
+                     {
+                         try
+                         {
+                             if(parameters.Validate != null && !parameters.Validate(DateTime.Now))
+                             {
+                                 return;
+                             }
 
-                            parameters.Action();
-                        }
-                        catch(Exception e)
-                        {
-                            Logger.Error(e);
-                            if(parameters.ErrorReporting)
-                            {
-                                //TODO make error reporting class with += support, mail + webservice
-                                /*
-                                try
-                                {
-
-                                    var client = new SmtpClient
-                                    {
-                                        Port = ?,
-                                        DeliveryMethod = SmtpDeliveryMethod.Network,
-                                        UseDefaultCredentials = false,
-                                        Host = "?",
-                                        Credentials = new NetworkCredential("?", "?")
-                                    };
-                                    var mail = new MailMessage("?", "?")
-                                    {
-                                        Subject = $"Service Exception: {AssemblyUtils.GetEntryAssembly().GetName().Name}",
-                                        Body = e.ToString()
-                                    };
-                                    mail.CC.Add("?");
-                                    
-                                    client.Send(mail);
-
-                                }
-                                    catch (Exception)
-                                    {
-                                        Logger.Error(e);
-                                    }
-                                }
-                         */
-                            }
-                        }
-                    });
+                             parameters.Action();
+                         }
+                         catch(Exception e)
+                         {
+                             Logger.Error(e);
+                             if(parameters.ErrorReporting)
+                             {
+                                 //TODO make error reporting class with += support, mail + webservice
+                                 /*
+                                 try
+                                 {
+ 
+                                     var client = new SmtpClient
+                                     {
+                                         Port = ?,
+                                         DeliveryMethod = SmtpDeliveryMethod.Network,
+                                         UseDefaultCredentials = false,
+                                         Host = "?",
+                                         Credentials = new NetworkCredential("?", "?")
+                                     };
+                                     var mail = new MailMessage("?", "?")
+                                     {
+                                         Subject = $"Service Exception: {AssemblyUtils.GetEntryAssembly().GetName().Name}",
+                                         Body = e.ToString()
+                                     };
+                                     mail.CC.Add("?");
+                                     
+                                     client.Send(mail);
+ 
+                                 }
+                                     catch (Exception)
+                                     {
+                                         Logger.Error(e);
+                                     }
+                                 }
+                          */
+                             }
+                         }
+                     });
 
                 timer.Elapsed += (sender, args) =>
                 {
@@ -104,24 +104,23 @@ namespace Suigetsu.Core.Desktop.Services
                 return;
             }
 
-            new Thread
-                (() =>
-                {
-                    _serviceController.RemoteInvoke?.Start();
+            new Thread(() =>
+                       {
+                           _serviceController.RemoteInvoke?.Start();
 
-                    if(_serviceController.OnServiceStart != null)
-                    {
-                        try
-                        {
-                            Logger.Trace("OnServiceStart");
-                            _serviceController.OnServiceStart(_serviceController);
-                        }
-                        catch(Exception e)
-                        {
-                            Logger.Error("Unhandled error on the service '{0}': {1}.", _serviceController.Name, e);
-                        }
-                    }
-                })
+                           if(_serviceController.OnServiceStart != null)
+                           {
+                               try
+                               {
+                                   Logger.Trace("OnServiceStart");
+                                   _serviceController.OnServiceStart(_serviceController);
+                               }
+                               catch(Exception e)
+                               {
+                                   Logger.Error("Unhandled error on the service '{0}': {1}.", _serviceController.Name, e);
+                               }
+                           }
+                       })
             {
                 IsBackground = true
             }.Start();

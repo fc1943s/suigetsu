@@ -33,6 +33,11 @@ namespace Suigetsu.Core.Extensions
         public static bool IsEmpty(this string str) => string.IsNullOrEmpty(str);
 
         /// <summary>
+        ///     Tests if the trimmed <paramref name="str" /> is empty.
+        /// </summary>
+        public static bool IsEmptyTrim(this string str) => string.IsNullOrWhiteSpace(str);
+
+        /// <summary>
         ///     Wraps the <paramref name="str" /> with the given <paramref name="edge" />.
         /// </summary>
         public static string Wrap(this string str, string edge) => Wrap(str, edge, edge);
@@ -46,7 +51,13 @@ namespace Suigetsu.Core.Extensions
         /// <summary>
         ///     Converts the <paramref name="text" /> to its int equivalent.
         /// </summary>
-        public static int ToInt(this string text, NumberStyles style = NumberStyles.Integer) => int.Parse(text, style);
+        public static int ToInt(this string text, NumberStyles style = NumberStyles.Integer) => ToNInt(text, style) ?? 0;
+
+        /// <summary>
+        ///     Converts the <paramref name="text" /> to its int equivalent.
+        /// </summary>
+        public static int? ToNInt(this string text, NumberStyles style = NumberStyles.Integer)
+            => text.IsEmpty() ? (int?)null : int.Parse(text, style);
 
         /// <summary>
         ///     Converts the <paramref name="text" /> to its Int64 equivalent.

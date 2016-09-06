@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Suigetsu.Core.Desktop</id>
-        <version>1.0</version>
+        <version>0.0</version>
         <title>Suigetsu.Core.Desktop</title>
         <authors>Stew</authors>
         <owners>Stew</owners>
@@ -13,6 +13,9 @@
         <description>Collection of .NET utility classes</description>
         <copyright />
         <tags>util desktop</tags>
+		<dependencies>
+			<dependency id="Suigetsu.Core" version="$version$" />
+		</dependencies>
     </metadata>
 	<files>
 		<file src="bin\Release\Suigetsu.Core.Desktop.dll" target="lib\net46" />

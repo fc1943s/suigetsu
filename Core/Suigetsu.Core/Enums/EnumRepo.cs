@@ -66,7 +66,7 @@ namespace Suigetsu.Core.Enums
         ///     Retrieves the repo from the given <see langword="enum" /> item.
         /// </summary>
         public static EnumRepo Get<T>(T item) where T : struct, IComparable, IFormattable, IConvertible
-            => GetRepo<T, EnumRepo>(item);
+        => GetRepo<T, EnumRepo>(item);
 
         /// <summary>
         ///     Retrieves the repo from the given <see langword="enum" /> item.
@@ -87,12 +87,12 @@ namespace Suigetsu.Core.Enums
         ///     Searches an <see langword="enum" /> item using the repo's <paramref name="id" />.
         /// </summary>
         public static T EnumById<T>(string id) where T : struct, IComparable, IFormattable, IConvertible
-            => (T)(object)EnumById(typeof(T), id);
+        => (T)(object)EnumById(typeof(T), id);
 
         /// <summary>
         ///     Searches the first <see langword="enum" /> item using the repo's <paramref name="desc" />.
         /// </summary>
         public static T EnumByDesc<T>(string desc) where T : struct, IComparable, IFormattable, IConvertible
-            => (T)(object)EnumByDesc(typeof(T), desc);
+        => (T)(object)EnumByDesc(typeof(T), desc);
     }
 }

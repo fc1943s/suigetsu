@@ -76,6 +76,14 @@ namespace Suigetsu.Core.Tests.Extensions
         }
 
         [Test]
+        public void IsEmptyTrimTest()
+        {
+            Expect(string.Empty.IsEmptyTrim());
+            Expect(((string)null).IsEmptyTrim());
+            Expect(" ".IsEmptyTrim());
+        }
+
+        [Test]
         public void ReverseTest() => Expect("1bA".Reverse(), EqualTo("Ab1"));
 
         [Test]
@@ -83,7 +91,20 @@ namespace Suigetsu.Core.Tests.Extensions
             => Expect("01/02/2000 00:30:00".ToDateTime(), EqualTo(new DateTime(2000, 02, 01, 00, 30, 00)));
 
         [Test]
-        public void ToIntTest() => Expect("1234".ToInt().ToString(), EqualTo("1234"));
+        public void ToIntTest()
+        {
+            Expect("1234".ToInt(), EqualTo(1234));
+            Expect("".ToInt(), EqualTo(0));
+            Expect(((string)null).ToInt(), EqualTo(0));
+        }
+
+        [Test]
+        public void ToNIntTest()
+        {
+            Expect("1234".ToNInt(), EqualTo(1234));
+            Expect("".ToNInt(), EqualTo(null));
+            Expect(((string)null).ToNInt(), EqualTo(null));
+        }
 
         [Test]
         public void ToLongTest() => Expect("1234".ToLong().ToString(), EqualTo("1234"));

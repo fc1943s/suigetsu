@@ -24,14 +24,14 @@ namespace Suigetsu.Core.Tests.Extensions
 
             Expect
                 (new Dictionary<string, bool>
-                {
-                    { "Test1", true },
-                    { "Test2", false }
-                }.ToJson
-                     (new JsonSerializerSettingsWrapperParameters
                      {
-                         Indented = true
-                     }),
+                         { "Test1", true },
+                         { "Test2", false }
+                     }.ToJson
+                     (new JsonSerializerSettingsWrapperParameters
+                      {
+                          Indented = true
+                      }),
                  EqualTo(@"{
   ""Test1"": true,
   ""Test2"": false
@@ -44,23 +44,23 @@ namespace Suigetsu.Core.Tests.Extensions
             Expect
                 (GenericEnumExtensionsTests.TestEnum.TestEnumItem.ToJson
                      (new JsonSerializerSettingsWrapperParameters
-                     {
-                         RegisterCustomContracts = false
-                     }),
+                      {
+                          RegisterCustomContracts = false
+                      }),
                  EqualTo(((int)GenericEnumExtensionsTests.TestEnum.TestEnumItem).ToString()));
 
             Expect
                 (946692000000.ToDateTime().ToJson
                      (new JsonSerializerSettingsWrapperParameters
-                     {
-                         OnCreateContract = contract =>
-                         {
-                             if(contract.UnderlyingType == typeof(DateTime))
-                             {
-                                 contract.Converter = new JavaScriptDateTimeConverter();
-                             }
-                         }
-                     }),
+                      {
+                          OnCreateContract = contract =>
+                          {
+                              if(contract.UnderlyingType == typeof(DateTime))
+                              {
+                                  contract.Converter = new JavaScriptDateTimeConverter();
+                              }
+                          }
+                      }),
                  EqualTo("new Date(946692000000)"));
         }
     }
