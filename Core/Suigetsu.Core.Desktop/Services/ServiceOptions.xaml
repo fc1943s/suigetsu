@@ -1,7 +1,0 @@
-﻿<Window x:Class="Suigetsu.Core.Desktop.Services.ServiceOptions"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        WindowStartupLocation="CenterScreen" Title="Service Options" Width="243" Height="254"
-        SizeToContent="Height" ResizeMode="CanMinimize">
-    <StackPanel x:Name="StackPanel1" />
-</Window>
