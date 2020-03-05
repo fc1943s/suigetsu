@@ -1,0 +1,5 @@
+group Suigetsu.UI.ElmishBridge.Backend
+
+FSharp.Core
+
+Giraffe.SerilogExtensions

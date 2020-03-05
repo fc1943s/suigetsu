@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Suigetsu.CoreCLR</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Extensions.fs" />
+    <Compile Include="Regexxer.fs" />
+    <Compile Include="Logging.fs" />
+    <Compile Include="Startup.fs" />
+    <Compile Include="Runtime.fs" />
+    <Compile Include="Json.fs" />
+    <Compile Include="FileSystem.fs" />
+    <Content Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Suigetsu.Core\Suigetsu.Core.fsproj" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

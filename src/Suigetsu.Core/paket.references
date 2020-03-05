@@ -1,0 +1,10 @@
+group Suigetsu.Core
+
+FSharp.Core
+
+Destructurama.FSharp
+JetBrains.Annotations
+Serilog
+Serilog.Sinks.Console
+
+FSharpPlus

@@ -1,0 +1,6 @@
+group Suigetsu.UI.ElmishBridge.Frontend
+
+FSharp.Core
+
+Fable.Elmish.HMR
+Fable.Elmish.React

@@ -1,0 +1,9 @@
+group Suigetsu.Testing
+
+FSharp.Core
+
+Serilog.Sinks.XUnit
+Microsoft.NET.Test.Sdk
+xunit.runner.visualstudio
+FsUnit.xUnit
+

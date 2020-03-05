@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Suigetsu.Core</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Core.fs" />
+    <Compile Include="Extensions.fs" />
+    <Compile Include="Runtime.fs" />
+    <Compile Include="Testing.fs" />
+    <Compile Include="Queue.fs" />
+    <Compile Include="SafeQueue.fs" />
+    <Compile Include="CoreConfig.fs" />
+    <Compile Include="Operators.fs" />
+    <Compile Include="Tuple2.fs" />
+    <Compile Include="AlphaNum.fs" />
+    <Compile Include="Io.fs" />
+    <Compile Include="Timer.fs" />
+    <Content Include="paket.references" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

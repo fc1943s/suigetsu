@@ -1,0 +1,92 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{AC1CE2EB-72D2-480C-889B-C4940CBC5578}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.Testing", "src\Suigetsu.Testing\Suigetsu.Testing.fsproj", "{151B8F3F-2731-44CD-8299-589C9500BD91}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.Bus", "src\Suigetsu.Bus\Suigetsu.Bus.fsproj", "{3F442711-2082-4092-8A06-149CF4A8AB76}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.Core", "src\Suigetsu.Core\Suigetsu.Core.fsproj", "{288CE5B7-F9D2-4426-82FD-8B64E6801C20}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.CoreCLR", "src\Suigetsu.CoreCLR\Suigetsu.CoreCLR.fsproj", "{2A8DB34D-8801-4AF5-BC40-DEEBEA4838F9}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.UI", "src\Suigetsu.UI\Suigetsu.UI.fsproj", "{B6397ED7-F7A8-4AA4-AFA6-BBDD863879DD}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.UI.ElmishBridge.Backend", "src\Suigetsu.UI.ElmishBridge.Backend\Suigetsu.UI.ElmishBridge.Backend.fsproj", "{B75E3AE9-8D64-4DEB-A96F-000A35C53DBA}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.UI.ElmishBridge.Frontend", "src\Suigetsu.UI.ElmishBridge.Frontend\Suigetsu.UI.ElmishBridge.Frontend.fsproj", "{8DE4FB5A-188F-4A1B-9724-7FB29245B811}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{997894ED-5517-4692-8B45-5412B5D2E34B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ext", "ext", "{8BBB258D-E88C-4575-81F6-92398C9C6C27}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Elmish.Bridge.Giraffe", "paket-files\suigetsu.ui.elmishbridge.backend\github.com\fc1943s\Elmish.Bridge\src\Giraffe\Elmish.Bridge.Giraffe.fsproj", "{0BD83C22-5EA8-4417-8FF9-E4E6957FC063}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Elmish.Bridge.Server", "paket-files\suigetsu.ui.elmishbridge.backend\github.com\fc1943s\Elmish.Bridge\src\Server\Elmish.Bridge.Server.fsproj", "{AB27AA79-6800-430A-9808-862D944B32A5}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Elmish.Bridge.Client", "paket-files\suigetsu.ui.elmishbridge.frontend\github.com\fc1943s\Elmish.Bridge\src\Client\Elmish.Bridge.Client.fsproj", "{78A0BEC1-F861-4921-BD64-2443F5D2F77A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{151B8F3F-2731-44CD-8299-589C9500BD91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{151B8F3F-2731-44CD-8299-589C9500BD91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{151B8F3F-2731-44CD-8299-589C9500BD91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{151B8F3F-2731-44CD-8299-589C9500BD91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F442711-2082-4092-8A06-149CF4A8AB76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F442711-2082-4092-8A06-149CF4A8AB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F442711-2082-4092-8A06-149CF4A8AB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F442711-2082-4092-8A06-149CF4A8AB76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{288CE5B7-F9D2-4426-82FD-8B64E6801C20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{288CE5B7-F9D2-4426-82FD-8B64E6801C20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{288CE5B7-F9D2-4426-82FD-8B64E6801C20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{288CE5B7-F9D2-4426-82FD-8B64E6801C20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A8DB34D-8801-4AF5-BC40-DEEBEA4838F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A8DB34D-8801-4AF5-BC40-DEEBEA4838F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A8DB34D-8801-4AF5-BC40-DEEBEA4838F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A8DB34D-8801-4AF5-BC40-DEEBEA4838F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6397ED7-F7A8-4AA4-AFA6-BBDD863879DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6397ED7-F7A8-4AA4-AFA6-BBDD863879DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6397ED7-F7A8-4AA4-AFA6-BBDD863879DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6397ED7-F7A8-4AA4-AFA6-BBDD863879DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B75E3AE9-8D64-4DEB-A96F-000A35C53DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B75E3AE9-8D64-4DEB-A96F-000A35C53DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B75E3AE9-8D64-4DEB-A96F-000A35C53DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B75E3AE9-8D64-4DEB-A96F-000A35C53DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE4FB5A-188F-4A1B-9724-7FB29245B811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE4FB5A-188F-4A1B-9724-7FB29245B811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE4FB5A-188F-4A1B-9724-7FB29245B811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE4FB5A-188F-4A1B-9724-7FB29245B811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BD83C22-5EA8-4417-8FF9-E4E6957FC063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BD83C22-5EA8-4417-8FF9-E4E6957FC063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BD83C22-5EA8-4417-8FF9-E4E6957FC063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BD83C22-5EA8-4417-8FF9-E4E6957FC063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB27AA79-6800-430A-9808-862D944B32A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB27AA79-6800-430A-9808-862D944B32A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB27AA79-6800-430A-9808-862D944B32A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB27AA79-6800-430A-9808-862D944B32A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78A0BEC1-F861-4921-BD64-2443F5D2F77A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78A0BEC1-F861-4921-BD64-2443F5D2F77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78A0BEC1-F861-4921-BD64-2443F5D2F77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78A0BEC1-F861-4921-BD64-2443F5D2F77A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3F442711-2082-4092-8A06-149CF4A8AB76} = {0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}
+		{288CE5B7-F9D2-4426-82FD-8B64E6801C20} = {0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}
+		{2A8DB34D-8801-4AF5-BC40-DEEBEA4838F9} = {0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}
+		{151B8F3F-2731-44CD-8299-589C9500BD91} = {0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}
+		{B6397ED7-F7A8-4AA4-AFA6-BBDD863879DD} = {0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}
+		{8DE4FB5A-188F-4A1B-9724-7FB29245B811} = {0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}
+		{B75E3AE9-8D64-4DEB-A96F-000A35C53DBA} = {0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}
+		{0BD83C22-5EA8-4417-8FF9-E4E6957FC063} = {8BBB258D-E88C-4575-81F6-92398C9C6C27}
+		{AB27AA79-6800-430A-9808-862D944B32A5} = {8BBB258D-E88C-4575-81F6-92398C9C6C27}
+		{78A0BEC1-F861-4921-BD64-2443F5D2F77A} = {8BBB258D-E88C-4575-81F6-92398C9C6C27}
+	EndGlobalSection
+EndGlobal

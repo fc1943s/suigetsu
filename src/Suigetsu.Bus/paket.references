@@ -1,0 +1,8 @@
+group Suigetsu.Bus
+
+FSharp.Core
+
+EasyNetQ
+FsPickler
+Pulsar.Client
+Serilog.Extensions.Logging

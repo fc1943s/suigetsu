@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Suigetsu.UI.ElmishBridge.Backend</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Server.fs" />
+    <Content Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\paket-files\suigetsu.ui.elmishbridge.backend\github.com\fc1943s\Elmish.Bridge\src\Giraffe\Elmish.Bridge.Giraffe.fsproj" />
+    <ProjectReference Include="..\Suigetsu.Core\Suigetsu.Core.fsproj" />
+    <ProjectReference Include="..\Suigetsu.UI\Suigetsu.UI.fsproj" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

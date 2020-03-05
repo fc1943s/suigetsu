@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Suigetsu.Bus</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="PulsarQueue.fs" />
+    <Compile Include="RabbitQueue.fs" />
+    <Content Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Suigetsu.CoreCLR\Suigetsu.CoreCLR.fsproj" />
+  </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>
