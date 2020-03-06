@@ -1,7 +1,10 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{AC1CE2EB-72D2-480C-889B-C4940CBC5578}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repo", "repo", "{AC1CE2EB-72D2-480C-889B-C4940CBC5578}"
 	ProjectSection(SolutionItems) = preProject
 		paket.dependencies = paket.dependencies
+		README.md = README.md
+		build.ps1 = build.ps1
+		LICENSE = LICENSE
 	EndProjectSection
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.Testing", "src\Suigetsu.Testing\Suigetsu.Testing.fsproj", "{151B8F3F-2731-44CD-8299-589C9500BD91}"
