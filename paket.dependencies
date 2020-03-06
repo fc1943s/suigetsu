@@ -11,6 +11,7 @@ source https://api.nuget.org/v3/index.json
 
 nuget FSharp.Core ~> 4.7
 
+git https://github.com/fc1943s/Elmish.Bridge.git experiments
 
 
 group Suigetsu.Bus
@@ -70,7 +71,6 @@ group Suigetsu.UI.ElmishBridge.Backend
 storage: none
 source https://api.nuget.org/v3/index.json
 
-git https://github.com/fc1943s/Elmish.Bridge.git experiments
 nuget Giraffe.SerilogExtensions ~> 1.3
 
 
@@ -80,7 +80,6 @@ group Suigetsu.UI.ElmishBridge.Frontend
 storage: none
 source https://api.nuget.org/v3/index.json
 
-git https://github.com/fc1943s/Elmish.Bridge.git experiments
 nuget Fable.Elmish.HMR ~> 4.0
 nuget Fable.Elmish.React ~> 3.0
 

@@ -9,7 +9,7 @@
     <Content Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\paket-files\suigetsu.ui.elmishbridge.backend\github.com\fc1943s\Elmish.Bridge\src\Giraffe\Elmish.Bridge.Giraffe.fsproj" />
+    <ProjectReference Include="..\..\paket-files\github.com\fc1943s\Elmish.Bridge\src\Giraffe\Elmish.Bridge.Giraffe.fsproj" />
     <ProjectReference Include="..\Suigetsu.Core\Suigetsu.Core.fsproj" />
     <ProjectReference Include="..\Suigetsu.UI\Suigetsu.UI.fsproj" />
   </ItemGroup>
