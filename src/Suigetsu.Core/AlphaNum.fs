@@ -5,43 +5,43 @@ open System.Collections
 
 module AlphaNum =
     let sort (a: string) (b: string) =
-        let isnum (s: string) i =
+        let isNum (s: string) i =
             let c = s.Chars i
             c >= '0' && c <= '9'
 
         let chunk (s: string) f t =
-            (f < s.Length) && (t < s.Length) && (isnum s f) = (isnum s t)
+            (f < s.Length) && (t < s.Length) && (isNum s f) = (isNum s t)
 
-        let chunkto s f =
-            let rec to_ s f e =
-                if chunk s f e
-                then to_ s f (e + 1)
+        let chunkTo str fn =
+            let rec loop str f e =
+                if chunk str f e
+                then loop str f (e + 1)
                 else e
-            to_ s f f
+            loop str fn fn
 
-        let int_of_string str =
-            let success, v = Int32.TryParse str
-            if success
-            then v
-            else 0
+        let intOfString =
+            Int32.TryParse
+            >> function
+                | true, result -> result
+                | _ -> 0
 
-        let rec chunkcmp (a: string) ai (b: string) bi =
+        let rec chunkCmp (a: string) ai (b: string) bi =
             let al, bl = a.Length, b.Length
             if ai >= al || bi >= bl then
                 compare al bl
             else
-                let ae, be = chunkto a ai, chunkto b bi
+                let ae, be = chunkTo a ai, chunkTo b bi
                 let sa, sb = a.Substring (ai, (ae - ai)), b.Substring (bi, (be - bi))
 
                 let cmp =
-                    if isnum a ai && isnum b bi
-                    then compare (int_of_string sa) (int_of_string sb)
+                    if isNum a ai && isNum b bi
+                    then compare (intOfString sa) (intOfString sb)
                     else compare sa sb
                 if cmp = 0
-                then chunkcmp a ae b be
+                then chunkCmp a ae b be
                 else cmp
 
-        chunkcmp a 0 b 0
+        chunkCmp a 0 b 0
 
 
     type AlphaNumComparer () =
