@@ -1,0 +1,5 @@
+group Suigetsu.UI.Frontend.React
+
+FSharp.Core
+
+Fable.React

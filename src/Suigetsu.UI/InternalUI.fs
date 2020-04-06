@@ -1,7 +1,5 @@
 namespace Suigetsu.UI
 
-open System
-
 module InternalUI =
     
     type User =

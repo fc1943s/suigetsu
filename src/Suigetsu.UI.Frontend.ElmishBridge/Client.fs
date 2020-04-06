@@ -1,4 +1,4 @@
-namespace Suigetsu.UI.ElmishBridge.Frontend
+namespace Suigetsu.UI.Frontend.ElmishBridge
 
 open Elmish
 open Elmish.Bridge
@@ -33,9 +33,10 @@ module Client =
           ServerToClientDispatch: PrivateServerMessage<'SharedServerMessage, 'UIState> -> unit }
 
     let inline listen<'UIState, 'SharedServerMessage, 'SharedClientMessage>
-        (initialState: 'UIState)
-        (lazyView: MainViewProps<'SharedServerMessage, 'UIState> -> ReactElement)
-        (handler: 'SharedServerMessage -> 'UIState -> ('UIState * 'SharedClientMessage option)) =
+         (initialState: 'UIState)
+         (lazyView: MainViewProps<'SharedServerMessage, 'UIState> -> ReactElement)
+         (handler: 'SharedServerMessage -> 'UIState -> ('UIState * 'SharedClientMessage option))
+         (bridge: bool) =
 
         let init () =
             let state =
@@ -103,23 +104,28 @@ module Client =
                       ServerToClientDispatch = serverToClientDispatch }
 
             mainComponentFactory
-
+            
         Program.mkProgram init update view
-        |> Program.withBridgeConfig
-            (Bridge.endpoint InternalUI.socketPath
-             |> Bridge.withUrlMode (UrlMode.Calculated (fun url endpoint ->
-                 let url =
-                         #if DEBUG
-                     url
-                         #else
-                     url.Replace ("5000", "8085")
-                         #endif
-                     
-                 [ url; endpoint ]
-                 |> Seq.fold (fun a b -> (a.TrimEnd '/') + (if a = "" then "" else "/") + (b.TrimStart '/')) ""
-             ))
-             |> Bridge.withMapping InternalServerMessage
-             |> Bridge.withWhenDown ConnectionLost)
+        |> fun program ->
+            if not bridge
+            then program
+            else
+                program 
+                |> Program.withBridgeConfig
+                    (Bridge.endpoint InternalUI.socketPath
+                     |> Bridge.withUrlMode (UrlMode.Calculated (fun url endpoint ->
+                         let url =
+                                 #if DEBUG
+                             url
+                                 #else
+                             url.Replace ("5000", "8085")
+                                 #endif
+                             
+                         [ url; endpoint ]
+                         |> Seq.fold (fun a b -> (a.TrimEnd '/') + (if a = "" then "" else "/") + (b.TrimStart '/')) ""
+                     ))
+                     |> Bridge.withMapping InternalServerMessage
+                     |> Bridge.withWhenDown ConnectionLost)
         |> Program.withReactSynchronous "app"
             #if DEBUG
     //  |> Program.withConsoleTrace

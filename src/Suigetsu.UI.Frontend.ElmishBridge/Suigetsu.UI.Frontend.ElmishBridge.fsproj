@@ -2,15 +2,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>Suigetsu.UI.ElmishBridge.Backend</RootNamespace>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Server.fs" />
+    <Compile Include="Util.fs" />
+    <Compile Include="Client.fs" />
     <Content Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\paket-files\github.com\fc1943s\Elmish.Bridge\src\Giraffe\Elmish.Bridge.Giraffe.fsproj" />
-    <ProjectReference Include="..\Suigetsu.Core\Suigetsu.Core.fsproj" />
+    <ProjectReference Include="..\..\paket-files\github.com\fc1943s\Elmish.Bridge\src\Client\Elmish.Bridge.Client.fsproj" />
     <ProjectReference Include="..\Suigetsu.UI\Suigetsu.UI.fsproj" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />

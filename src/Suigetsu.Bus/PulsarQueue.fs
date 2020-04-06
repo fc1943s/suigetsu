@@ -23,7 +23,7 @@ module PulsarQueue =
     //pickleRegistry.DeclareSerializable<Coverage> ()
     //pickleRegistry.DeclareSerializable<MatchedWith> ()
 
-    #nowarn "8989"
+    #nowarn "8989" 
     let private pickleCache = PicklerCache.FromCustomPicklerRegistry pickleRegistry
         
     let mutable private _logSet = false

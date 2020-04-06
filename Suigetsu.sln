@@ -17,9 +17,9 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.CoreCLR", "src\Sui
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.UI", "src\Suigetsu.UI\Suigetsu.UI.fsproj", "{B6397ED7-F7A8-4AA4-AFA6-BBDD863879DD}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.UI.ElmishBridge.Backend", "src\Suigetsu.UI.ElmishBridge.Backend\Suigetsu.UI.ElmishBridge.Backend.fsproj", "{B75E3AE9-8D64-4DEB-A96F-000A35C53DBA}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.UI.Backend.ElmishBridge", "src\Suigetsu.UI.Backend.ElmishBridge\Suigetsu.UI.Backend.ElmishBridge.fsproj", "{B75E3AE9-8D64-4DEB-A96F-000A35C53DBA}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.UI.ElmishBridge.Frontend", "src\Suigetsu.UI.ElmishBridge.Frontend\Suigetsu.UI.ElmishBridge.Frontend.fsproj", "{8DE4FB5A-188F-4A1B-9724-7FB29245B811}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.UI.Frontend.ElmishBridge", "src\Suigetsu.UI.Frontend.ElmishBridge\Suigetsu.UI.Frontend.ElmishBridge.fsproj", "{8DE4FB5A-188F-4A1B-9724-7FB29245B811}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}"
 EndProject
@@ -27,11 +27,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{997894ED-5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ext", "ext", "{8BBB258D-E88C-4575-81F6-92398C9C6C27}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Elmish.Bridge.Giraffe", "paket-files\suigetsu.ui.elmishbridge.backend\github.com\fc1943s\Elmish.Bridge\src\Giraffe\Elmish.Bridge.Giraffe.fsproj", "{0BD83C22-5EA8-4417-8FF9-E4E6957FC063}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Elmish.Bridge.Giraffe", "paket-files\github.com\fc1943s\Elmish.Bridge\src\Giraffe\Elmish.Bridge.Giraffe.fsproj", "{0BD83C22-5EA8-4417-8FF9-E4E6957FC063}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Elmish.Bridge.Server", "paket-files\suigetsu.ui.elmishbridge.backend\github.com\fc1943s\Elmish.Bridge\src\Server\Elmish.Bridge.Server.fsproj", "{AB27AA79-6800-430A-9808-862D944B32A5}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Elmish.Bridge.Server", "paket-files\github.com\fc1943s\Elmish.Bridge\src\Server\Elmish.Bridge.Server.fsproj", "{AB27AA79-6800-430A-9808-862D944B32A5}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Elmish.Bridge.Client", "paket-files\suigetsu.ui.elmishbridge.frontend\github.com\fc1943s\Elmish.Bridge\src\Client\Elmish.Bridge.Client.fsproj", "{78A0BEC1-F861-4921-BD64-2443F5D2F77A}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Elmish.Bridge.Client", "paket-files\github.com\fc1943s\Elmish.Bridge\src\Client\Elmish.Bridge.Client.fsproj", "{78A0BEC1-F861-4921-BD64-2443F5D2F77A}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Suigetsu.UI.Frontend.React", "src\Suigetsu.UI.Frontend.React\Suigetsu.UI.Frontend.React.fsproj", "{D51A88B0-7CC2-4526-B470-99A97CC6EE78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,10 @@ Global
 		{78A0BEC1-F861-4921-BD64-2443F5D2F77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78A0BEC1-F861-4921-BD64-2443F5D2F77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78A0BEC1-F861-4921-BD64-2443F5D2F77A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D51A88B0-7CC2-4526-B470-99A97CC6EE78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51A88B0-7CC2-4526-B470-99A97CC6EE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51A88B0-7CC2-4526-B470-99A97CC6EE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51A88B0-7CC2-4526-B470-99A97CC6EE78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3F442711-2082-4092-8A06-149CF4A8AB76} = {0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}
@@ -91,5 +97,6 @@ Global
 		{0BD83C22-5EA8-4417-8FF9-E4E6957FC063} = {8BBB258D-E88C-4575-81F6-92398C9C6C27}
 		{AB27AA79-6800-430A-9808-862D944B32A5} = {8BBB258D-E88C-4575-81F6-92398C9C6C27}
 		{78A0BEC1-F861-4921-BD64-2443F5D2F77A} = {8BBB258D-E88C-4575-81F6-92398C9C6C27}
+		{D51A88B0-7CC2-4526-B470-99A97CC6EE78} = {0FB4DA3E-E229-4560-A7B5-2767CC6C7B7D}
 	EndGlobalSection
 EndGlobal

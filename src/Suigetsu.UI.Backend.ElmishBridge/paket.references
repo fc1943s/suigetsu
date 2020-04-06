@@ -1,4 +1,4 @@
-group Suigetsu.UI.ElmishBridge.Backend
+group Suigetsu.UI.Backend.ElmishBridge
 
 FSharp.Core
 

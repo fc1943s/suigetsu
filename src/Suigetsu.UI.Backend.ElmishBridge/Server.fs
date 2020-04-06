@@ -1,4 +1,4 @@
-namespace Suigetsu.UI.ElmishBridge.Backend
+namespace Suigetsu.UI.Backend.ElmishBridge
 
 open Elmish.Bridge
 open Elmish

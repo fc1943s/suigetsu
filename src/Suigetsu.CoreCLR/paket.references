@@ -1,7 +1,6 @@
-FSharp.Core
-
-
 group Suigetsu.CoreCLR
+
+FSharp.Core
 
 Newtonsoft.Json
 Microsoft.Extensions.FileProviders.Physical

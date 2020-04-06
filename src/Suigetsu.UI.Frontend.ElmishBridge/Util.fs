@@ -1,4 +1,4 @@
-namespace Suigetsu.UI.ElmishBridge.Frontend
+namespace Suigetsu.UI.Frontend.ElmishBridge
 
 module Util =
     let jsArray<'T> =
