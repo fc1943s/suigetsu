@@ -19,9 +19,10 @@ module AlphaNum =
                 else e
             loop str fn fn
 
-        let intOfString =
-            Int32.TryParse
-            >> function
+        let intOfString (str: string) =
+            str
+            |> Int32.TryParse
+            |> function
                 | true, result -> result
                 | _ -> 0
 
