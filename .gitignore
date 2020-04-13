@@ -1,32 +1,11 @@
 ### Local settings
-
-# ide settings
-.vs/
-
-**/.idea/*
-!**/.idea/*/
-**/.idea/*/*
-!**/.idea/*/.idea/
-!**/.idea/*/.idea/runConfigurations/**
-
-# user configurations
+# IDE settings
+.idea/
+# User configurations
 *.user
 
-
-
-### .net
-
-obj/
+### .NET
 bin/
-nupkg/
-packages/
-!/packages/
-
-.fake/
+obj/
 .paket/
 paket-files/
-
-
-
-
-
