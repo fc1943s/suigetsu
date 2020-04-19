@@ -6,6 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Core.fs" />
+    <Compile Include="Tuple2.fs" />
     <Compile Include="Extensions.fs" />
     <Compile Include="Runtime.fs" />
     <Compile Include="Testing.fs" />
@@ -13,7 +14,6 @@
     <Compile Include="SafeQueue.fs" />
     <Compile Include="CoreConfig.fs" />
     <Compile Include="Operators.fs" />
-    <Compile Include="Tuple2.fs" />
     <Compile Include="AlphaNum.fs" />
     <Compile Include="Io.fs" />
     <Compile Include="Timer.fs" />

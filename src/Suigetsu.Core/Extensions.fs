@@ -1,6 +1,8 @@
 namespace Suigetsu.Core
 
+open FSharpPlus
 open FSharpPlus.Data
+
 
 module Set =
     let toggle item set =
@@ -54,6 +56,12 @@ module Result =
         result
         |> Result.mapError exn
         |> ResultOrException.Result
+        
+    let collect items =
+        items
+        |> Seq.toList
+        |> Result.partition
+        |> Tuple2.mapFst (List.collect id)
        
     let tryFn msg fn =
         try
