@@ -10,51 +10,28 @@ module Set =
         then Set.add item set
         else Set.remove item set
         
-module Map =
-   let keys map =
-       map
-       |> Map.toSeq
-       |> Seq.map fst
-       
-   let values map =
-       map
-       |> Map.toSeq
-       |> Seq.map snd
     
 module Async =
-    let map fn afn = async {
-        let! x = afn
-        let value = fn x
-        return value
-    }
-    
     let wrap x = async {
         return x
     } 
 
     let choose fn =
-        map (fn id)
+        Async.map (fn id)
+    
     
 module Result =
     let fold fn state =
         Seq.fold (fun state next ->
             match state, next with
-            | Ok ys, Ok y -> fn ys y |> Ok
-            | Error e, _ -> Error e
-            | _, Error e -> Error e
+            | Ok xs, Ok x -> fn xs x |> Ok
+            | Error e, _
+            | _, Error e -> e |> Error
         ) state
         
-    let mapFn succ err = function
-        | Ok x -> succ x
-        | Error ex -> err ex
-        
-    let value = function
-       | Ok x -> x
-       | Error ex -> exn (ex.ToString ()) |> raise
-       
     let okOrThrow result =
         result
-        |> Result.mapError exn
+        |> Result.mapError (fun x -> x.ToString () |> exn)
         |> ResultOrException.Result
         
     let collect items =
