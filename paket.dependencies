@@ -15,9 +15,9 @@ group Suigetsu.Bus
     storage: none
     source https://api.nuget.org/v3/index.json
 
-    nuget EasyNetQ ~> 3.8 prerelease
+    nuget EasyNetQ ~> 3.8
     nuget FsPickler ~> 5.2
-    nuget Pulsar.Client ~> 0.12
+    nuget Pulsar.Client ~> 0.18
     nuget Serilog.Extensions.Logging ~> 3.0 prerelease
 
 
@@ -31,7 +31,7 @@ group Suigetsu.Core
     nuget Serilog.Sinks.Console ~> 4.0 prerelease
 
     nuget FSharp.Control.AsyncSeq ~> 2.0
-    nuget FSharpPlus ~> 1.1.0-rc4
+    nuget FSharpPlus ~> 1.1.0
 
 
 group Suigetsu.CoreCLR

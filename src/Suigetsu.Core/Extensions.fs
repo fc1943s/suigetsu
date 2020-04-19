@@ -1,5 +1,7 @@
 namespace Suigetsu.Core
 
+open FSharpPlus.Data
+
 module Set =
     let toggle item set =
         if Set.contains item set
@@ -23,11 +25,23 @@ module Async =
         let value = fn x
         return value
     }
-        
+    
+    let wrap x = async {
+        return x
+    } 
+
     let choose fn =
         map (fn id)
     
 module Result =
+    let fold fn state =
+        Seq.fold (fun state next ->
+            match state, next with
+            | Ok ys, Ok y -> fn ys y |> Ok
+            | Error e, _ -> Error e
+            | _, Error e -> Error e
+        ) state
+        
     let mapFn succ err = function
         | Ok x -> succ x
         | Error ex -> err ex
@@ -35,6 +49,11 @@ module Result =
     let value = function
        | Ok x -> x
        | Error ex -> exn (ex.ToString ()) |> raise
+       
+    let okOrThrow result =
+        result
+        |> Result.mapError exn
+        |> ResultOrException.Result
        
     let tryFn msg fn =
         try
