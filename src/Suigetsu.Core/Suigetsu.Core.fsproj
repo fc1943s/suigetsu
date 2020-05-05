@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Core.fs" />
+    <Compile Include="ComputationExpressions.fs" />
     <Compile Include="Tuple2.fs" />
     <Compile Include="Extensions.fs" />
     <Compile Include="Runtime.fs" />

@@ -1,10 +1,10 @@
 namespace Suigetsu.CoreCLR
 
 open Serilog
-open System
-open System.Collections.Concurrent
 open System.Diagnostics
 open System.Linq
+open System.Collections.Concurrent
+open System
     
 module Runtime =
     let executePowerShellAsync (cmd: string list) = async {
@@ -40,7 +40,7 @@ module Runtime =
         proc.BeginErrorReadLine ()
         proc.BeginOutputReadLine ()
         
-        do! proc.WaitForExitAsync ()
+        do! proc.WaitForExitAsync () |> Async.AwaitTask
         
         let result = log.Reverse () |> String.concat Environment.NewLine
         

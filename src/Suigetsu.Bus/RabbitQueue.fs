@@ -46,7 +46,7 @@ module RabbitQueue =
         
         
 
-    type Exchange<'T> (bus: IBus) =
+    type Exchange<'T when 'T: not struct> (bus: IBus) =
         
         let exchange = bus.Advanced.ExchangeDeclare (sprintf "@@Exchange-%s" typeof<'T>.FullName, ExchangeType.Topic)
         

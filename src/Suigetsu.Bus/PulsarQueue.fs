@@ -11,6 +11,8 @@ open MBrace.FsPickler
 open Pulsar.Client.Common
 open Serilog.Extensions.Logging
 
+#nowarn "8989" 
+
 module PulsarQueue =
         
     let private pickleRegistry = CustomPicklerRegistry ()
@@ -23,7 +25,6 @@ module PulsarQueue =
     //pickleRegistry.DeclareSerializable<Coverage> ()
     //pickleRegistry.DeclareSerializable<MatchedWith> ()
 
-    #nowarn "8989" 
     let private pickleCache = PicklerCache.FromCustomPicklerRegistry pickleRegistry
         
     let mutable private _logSet = false
@@ -110,11 +111,13 @@ module PulsarQueue =
             
         
         interface Queue.IQueue<'T> with
-            override _.Post message =
-                fetchProducer (fun producer ->
-                    let pickle = binarySerializer.Pickle message
-                    let messageId = producer.SendAsync(pickle).GetAwaiter().GetResult()
-                    Log.Verbose("Message produced. Id: {Id}", messageId))
+            override _.Post _message =
+                fetchProducer (fun _producer ->
+//                    let pickle = binarySerializer.Pickle message
+//                    let messageId = producer.SendAsync(pickle).GetAwaiter().GetResult()
+//                    Log.Verbose("Message produced. Id: {Id}", messageId)
+                    failwith "Pulsar client Compilation error"
+                )
 
         interface IDisposable with
             override _.Dispose () =

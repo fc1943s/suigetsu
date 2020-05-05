@@ -4,6 +4,11 @@ open FSharpPlus
 open FSharpPlus.Data
 
 
+module List =
+    let prepend a b =
+        List.append b a
+    
+
 module Set =
     let toggle item set =
         if Set.contains item set
