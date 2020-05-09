@@ -1,1 +1,1 @@
-dotnet paket install
+dotnet paket update
