@@ -69,5 +69,4 @@ group Suigetsu.UI.Frontend.React
     storage: none
     source https://api.nuget.org/v3/index.json
 
-    nuget Fable.React ~> 6.2
-
+    nuget Feliz ~> 1.5
