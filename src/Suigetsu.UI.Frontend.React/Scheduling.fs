@@ -2,7 +2,7 @@ namespace Suigetsu.UI.Frontend.React
 
 open System
 open Fable.Core
-open Fable.React
+open Feliz
 
 
 module Scheduling =
@@ -14,14 +14,14 @@ module Scheduling =
         | Timeout -> JS.setTimeout, JS.clearTimeout
         | Interval -> JS.setInterval, JS.clearInterval
 
-    let useScheduling schedulingType fn interval =
-        let savedCallback = Hooks.useRef fn
+    let useScheduling schedulingType (fn: unit -> unit) interval =
+        let savedCallback = React.useRef fn
 
-        Hooks.useEffect (fun () ->
+        React.useEffect (fun () ->
             savedCallback.current <- fn
-        , [| fn |])
+        , [| fn :> obj |])
 
-        Hooks.useEffectDisposable (fun () ->
+        React.useEffect (fun () ->
             let set, clear = schedulingFn schedulingType
             let onExecute () =
                 savedCallback.current ()
@@ -31,4 +31,4 @@ module Scheduling =
             { new IDisposable with
                 member _.Dispose () =
                     clear id }
-        , [| interval |])
+        , [| interval :> obj |])
