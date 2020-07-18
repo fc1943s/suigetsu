@@ -4,15 +4,15 @@ open System
 open Fable.Core
 open Fable.React
 
-module Hooks =
-    module Scheduling =
-        type SchedulingType =
-            | Timeout
-            | Interval
 
-        let schedulingFn = function
-            | Timeout -> JS.setTimeout, JS.clearTimeout
-            | Interval -> JS.setInterval, JS.clearInterval
+module Scheduling =
+    type SchedulingType =
+        | Timeout
+        | Interval
+
+    let private schedulingFn = function
+        | Timeout -> JS.setTimeout, JS.clearTimeout
+        | Interval -> JS.setInterval, JS.clearInterval
 
     let useScheduling schedulingType fn interval =
         let savedCallback = Hooks.useRef fn
@@ -22,7 +22,7 @@ module Hooks =
         , [| fn |])
 
         Hooks.useEffectDisposable (fun () ->
-            let set, clear = Scheduling.schedulingFn schedulingType
+            let set, clear = schedulingFn schedulingType
             let onExecute () =
                 savedCallback.current ()
 

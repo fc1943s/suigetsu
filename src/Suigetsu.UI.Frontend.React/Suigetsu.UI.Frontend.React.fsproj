@@ -5,7 +5,7 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Hooks.fs" />
+    <Compile Include="Scheduling.fs" />
     <Content Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
