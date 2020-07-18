@@ -14,21 +14,21 @@ module Hooks =
             | Timeout -> JS.setTimeout, JS.clearTimeout
             | Interval -> JS.setInterval, JS.clearInterval
 
-        let useInterval schedulingType fn interval =
-            let savedCallback = Hooks.useRef fn
+    let useScheduling schedulingType fn interval =
+        let savedCallback = Hooks.useRef fn
 
-            Hooks.useEffect (fun () ->
-                savedCallback.current <- fn
-            , [| fn |])
+        Hooks.useEffect (fun () ->
+            savedCallback.current <- fn
+        , [| fn |])
 
-            Hooks.useEffectDisposable (fun () ->
-                let set, clear = schedulingFn schedulingType
-                let onExecute () =
-                    savedCallback.current ()
+        Hooks.useEffectDisposable (fun () ->
+            let set, clear = Scheduling.schedulingFn schedulingType
+            let onExecute () =
+                savedCallback.current ()
 
-                let id = set onExecute interval
+            let id = set onExecute interval
 
-                { new IDisposable with
-                    member _.Dispose () =
-                        clear id }
-            , [| interval |])
+            { new IDisposable with
+                member _.Dispose () =
+                    clear id }
+        , [| interval |])
