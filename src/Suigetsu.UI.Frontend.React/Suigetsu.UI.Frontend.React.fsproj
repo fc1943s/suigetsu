@@ -6,8 +6,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Scheduling.fs" />
-    <Content Include="paket.references" />
     <Compile Include="CustomHooks.fs" />
+    <Content Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Suigetsu.UI\Suigetsu.UI.fsproj" />
