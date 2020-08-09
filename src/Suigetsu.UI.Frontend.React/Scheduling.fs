@@ -14,7 +14,7 @@ module Scheduling =
         | Timeout -> JS.setTimeout, JS.clearTimeout
         | Interval -> JS.setInterval, JS.clearInterval
 
-    let useScheduling schedulingType (fn: unit -> unit) duration =
+    let useScheduling schedulingType duration (fn: unit -> unit) =
         let savedCallback = React.useRef fn
 
         React.useEffect (fun () ->
