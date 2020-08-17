@@ -43,7 +43,7 @@ module Result =
         items
         |> Seq.toList
         |> Result.partition
-        |> Tuple2.mapFst (List.collect id)
+        |> Tuple2.mapItem1 (List.collect id)
 
     let tryFn msg fn =
         try
