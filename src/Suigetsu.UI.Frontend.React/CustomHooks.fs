@@ -1,4 +1,4 @@
-module Suigetsu.UI.Frontend.React
+namespace Suigetsu.UI.Frontend.React
 
 open System
 open Browser

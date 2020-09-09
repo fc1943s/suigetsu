@@ -14,7 +14,7 @@ module Scheduling =
         | Timeout -> JS.setTimeout, JS.clearTimeout
         | Interval -> JS.setInterval, JS.clearInterval
 
-    let useScheduling schedulingType (fn: unit -> unit) interval =
+    let useScheduling schedulingType duration (fn: unit -> unit) =
         let savedCallback = React.useRef fn
 
         React.useEffect (fun () ->
@@ -26,9 +26,9 @@ module Scheduling =
             let onExecute () =
                 savedCallback.current ()
 
-            let id = set onExecute interval
+            let id = set onExecute duration
 
             { new IDisposable with
                 member _.Dispose () =
                     clear id }
-        , [| interval :> obj |])
+        , [| duration :> obj |])
